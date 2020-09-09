@@ -110,13 +110,7 @@ namespace TLY.Controls
                         if (ray != false)
                         {
                             var target = ray.collider;
-                            if (target.GetComponent<TownActivities.NPC.SkillTrainer>())
-                            {
-                                Debug.Log("We have an NPC");
-                                _state = ControlState.Converse;
-                                target.GetComponent<TownActivities.NPC.NPCCore>().Speak();
-                            }
-                            else if (target.GetComponent<TownActivities.NPC.StoreFront>())
+                            if (target.GetComponent<TownActivities.NPC.StoreFront>())
                             {
 
                             }
