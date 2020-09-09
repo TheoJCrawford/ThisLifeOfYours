@@ -14,7 +14,7 @@ namespace TLY.SkillSystem
         {
             name = "Brawling";
             icon = (Image)AssetDatabase.LoadAssetAtPath("Asset/Art/Skill Icons/BrawlingSkillIcon.png",typeof(Image));
-            descript = " ";
+            descript = "The application of fist to other's faces.";
             level = 1;
             expToLvel = 1000;
             expPool = 0;

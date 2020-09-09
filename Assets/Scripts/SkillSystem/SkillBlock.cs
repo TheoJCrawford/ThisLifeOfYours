@@ -30,9 +30,6 @@ namespace TLY.SkillSystem
                 case "Thievery":
                     descript = "Stealing and moving quietly on the job.";
                     break;
-                case "Brawling":
-                    descript = "The application of fist to other's faces.";
-                    break;
                 case "Thaumatergy":
                     descript = "The construction of aether manipulating gear as well as research";
                     break;
@@ -82,7 +79,6 @@ namespace TLY.SkillSystem
             {
                 LevelUp();
             }
-            exhaust++;
         }
         private void LevelUp()
         {
