@@ -36,9 +36,6 @@ namespace TLY.SkillSystem
                 case "Faith":
                     descript = "The will of the gods, helping within the temple, all things todo with the greater faith";
                     break;
-                case "Blacksmith":
-                    descript = "The ability to craft most weapons and armour, as well as some ammunition";
-                    break;
                 case "Leatherwork":
                     descript = "The ability to make some armours and shoes";
                     break;
@@ -59,9 +56,6 @@ namespace TLY.SkillSystem
                     break;
                 case "Tailor":
                     descript = "For the making of clothing and other wares";
-                    break;
-                default:
-                    descript = "Weapons and armour, the skills of war";
                     break;
             }
         }
