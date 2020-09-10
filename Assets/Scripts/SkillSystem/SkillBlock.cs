@@ -30,9 +30,6 @@ namespace TLY.SkillSystem
                 case "Thievery":
                     descript = "Stealing and moving quietly on the job.";
                     break;
-                case "Thaumatergy":
-                    descript = "The construction of aether manipulating gear as well as research";
-                    break;
                 case "Faith":
                     descript = "The will of the gods, helping within the temple, all things todo with the greater faith";
                     break;
