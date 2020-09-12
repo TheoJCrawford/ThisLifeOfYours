@@ -87,6 +87,7 @@ namespace TLY.Controls
         }
         private void IntractInput()
         {
+            int _faceMe;
             if(Input.GetKeyDown(KeyCode.E))
             switch (_state)
             {
@@ -96,15 +97,19 @@ namespace TLY.Controls
                         {
                             case 1:
                                 ray = Physics2D.Raycast(transform.position, Vector2.right, 1f);
+                                _faceMe = 3;
                                 break;
                             case 2:
                                 ray = Physics2D.Raycast(transform.position, Vector2.up, 1f);
+                                _faceMe = 0;
                                 break;
                             case 3:
                                 ray = Physics2D.Raycast(transform.position, Vector2.left, 1f);
+                                _faceMe = 3;
                                 break;
                             default:
                                 ray = Physics2D.Raycast(transform.position, Vector2.down, 1f);
+                                _faceMe = 2;
                                 break;
                         }
                         if (ray != false)
@@ -116,7 +121,9 @@ namespace TLY.Controls
                             }
                             else if (target.GetComponent<TownActivities.NPC.NPCCore>())
                             {
-                                target.GetComponent<TownActivities.NPC.NPCCore>().Speak();
+                                
+                                target.GetComponent<TownActivities.NPC.NPCCore>().Speak(_faceMe);
+                                _state = ControlState.Converse;
                             }
                         }
                     break;
@@ -154,6 +161,11 @@ namespace TLY.Controls
                     _state = ControlState.Moving;
                 }
             }
+        }
+
+        public void LeaveConversation()
+        {
+            _state = ControlState.Moving;
         }
     }
 }

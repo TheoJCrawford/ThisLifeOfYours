@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices.WindowsRuntime;
+using TLY.Animation;
+using TLY.Controls;
 using UnityEngine;
 
 namespace TLY.TownActivities.NPC
 {
+    [RequireComponent(typeof(NPCAnimator))]
     public class NPCCore : MonoBehaviour
     {
         [SerializeField]public string npcName { get; set; }
@@ -15,6 +17,15 @@ namespace TLY.TownActivities.NPC
         [SerializeField] public string IntroductionLine { get; set; }
         [SerializeField] public List<string> dialoguelines { get; set; }
         public bool hasMet { get; internal set; }
+
+        
+
+        internal NPCAnimator _anima;
+
+        private void Awake()
+        {
+            _anima = GetComponent<NPCAnimator>();
+        }
 
         public NPCCore()
         {
@@ -26,8 +37,9 @@ namespace TLY.TownActivities.NPC
             dialoguelines = new List<string>();
         }
 
-        public virtual void Speak()
+        public virtual void Speak(int direct)
         {
+            _anima.SetDirection(direct);
             if (!hasMet)
             {
                 if (GameObject.Find("Deus"))
@@ -40,10 +52,12 @@ namespace TLY.TownActivities.NPC
             }
             else
             {
-                Debug.Log(dialoguelines.ElementAt(RandomizeLines()));
+                GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(dialoguelines.ElementAt(RandomizeLines()));
+                Debug.Log(dialoguelines.ElementAt(RandomizeLines()));            
             }
+            
         }
-        #region In Engine lines
+        #region In Editor lines
         public void ChangeGender(int NewGender)
         {
             switch (NewGender)

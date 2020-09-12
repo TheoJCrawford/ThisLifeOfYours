@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine;
+using TLY.Controls;
 
 namespace TLY.UI
 {
@@ -41,13 +42,9 @@ namespace TLY.UI
         {
             LowerTab.SetActive(true);
         }
-        public void LeaveText()
-        {
-            LowerTab.SetActive(false);
-        }
-
         public void ExitDialogue()
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().LeaveConversation();
             LowerTab.SetActive(false);
         }
     }

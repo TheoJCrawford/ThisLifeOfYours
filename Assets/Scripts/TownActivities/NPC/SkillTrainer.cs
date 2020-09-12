@@ -6,6 +6,13 @@ namespace TLY.TownActivities.NPC
 {
     public class SkillTrainer:MonoBehaviour
     {
-        private int skill;
+        public SkillBlock skillTeacher;
+
+        [SerializeField] private int _cost;
+
+        public void TeachSkill()
+        {
+
+        }
     }
 }

@@ -13,23 +13,10 @@ namespace TLY.SkillSystem
         public int expPool { get; internal set; }
         public int exhaust { get; internal set; }
 
-        public SkillBlock()
-        {
-            name = "Martial";
-            LearnSkillBlock();
-            level = 1;
-            expToLvel = 1000;
-            expPool = 0;
-            exhaust = 0;
-        }
-
         private void LearnSkillBlock()
         {
             switch (name)
             {
-                case "Thievery":
-                    descript = "Stealing and moving quietly on the job.";
-                    break;
                 case "Faith":
                     descript = "The will of the gods, helping within the temple, all things todo with the greater faith";
                     break;
