@@ -10,7 +10,7 @@ namespace TLY.SkillSystem
         {
             name = "Martial";
             descript = "Weapons and armour, the skills of war.";
-            icon = (Image)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Art/SkillIcons/MartialSkillIcon.png", typeof(Image));
+            icon = Resources.Load<Image>("Assets/Art/SkillIcons/MartialSkillIcon.png");
             level = 1;
             expToLvel = 1000;
             expPool = 0;

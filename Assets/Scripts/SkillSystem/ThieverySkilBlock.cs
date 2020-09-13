@@ -1,5 +1,4 @@
-﻿
-using UnityEditor;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace TLY.SkillSystem
@@ -9,7 +8,7 @@ namespace TLY.SkillSystem
         public ThieverySkilBlock()
         {
             name = "Thievery";
-            icon = (Image)AssetDatabase.LoadAssetAtPath("Asset/Art/SkillIcons/ThieverySkillIcon.png", typeof(Image));
+            icon = Resources.Load<Image>("Asset/Art/SkillIcons/ThieverySkillIcon.png",);
             descript = "Stealing and moving quietly on the job.";
             level = 1;
             expToLvel = 1000;

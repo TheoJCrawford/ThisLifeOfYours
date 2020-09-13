@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace TLY.SkillSystem
 {
@@ -7,7 +8,7 @@ namespace TLY.SkillSystem
         public BrawlSkillblock()
         {
             name = "Brawling";
-            icon = (Image)UnityEditor.AssetDatabase.LoadAssetAtPath("Asset/Art/Skill Icons/BrawlingSkillIcon.png",typeof(Image));
+            icon = Resources.Load<Image>("Asset/Art/Skill Icons/BrawlingSkillIcon.png");
             descript = "The application of fist to other's faces.";
             level = 1;
             expToLvel = 1000;
