@@ -1,4 +1,4 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
 
 namespace TLY.SkillSystem
 {
@@ -6,43 +6,13 @@ namespace TLY.SkillSystem
     {
         public string name { get; internal set; }
         public string descript { get; internal set; }
-        public Image icon { get; internal set; }
+        public Sprite icon { get; internal set; }
         public int level { get; internal set; }
 
         public int expToLvel { get; internal set; }
         public int expPool { get; internal set; }
         public int exhaust { get; internal set; }
 
-        private void LearnSkillBlock()
-        {
-            switch (name)
-            {
-                case "Faith":
-                    descript = "The will of the gods, helping within the temple, all things todo with the greater faith";
-                    break;
-                case "Leatherwork":
-                    descript = "The ability to make some armours and shoes";
-                    break;
-                case "Alchemy":
-                    descript = "The ability to make potoins and poisons";
-                    break;
-                case "Performance":
-                    descript = "Singing in bars, acting on the stage.";
-                    break;
-                case "Mechantilism":
-                    descript = "The ability to barter better.";
-                    break;
-                case "Tinker":
-                    descript = "The construction of new items not commonly used.";
-                    break;
-                case "Occult":
-                    descript = "With eldritch horrors, create and destroy";
-                    break;
-                case "Tailor":
-                    descript = "For the making of clothing and other wares";
-                    break;
-            }
-        }
         public void GainExperience(int Val)
         {
             if(exhaust > 0)

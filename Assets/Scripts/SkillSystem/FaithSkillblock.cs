@@ -1,5 +1,4 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
 namespace TLY.SkillSystem
 {
     public class FaithSkillblock:SkillBlock
@@ -7,7 +6,7 @@ namespace TLY.SkillSystem
         public FaithSkillblock()
         {
             name = "Faith";
-            icon = Resources.Load<Image>("Asset/Art/SkillIcons/ThieverySkillIcon.png");
+            icon = Resources.Load<Sprite>("Asset/Art/SkillIcons/ThieverySkillIcon.png");
             descript = "Stealing and moving quietly on the job.";
             level = 1;
             expToLvel = 1000;
