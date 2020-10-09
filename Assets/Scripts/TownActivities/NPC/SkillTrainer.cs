@@ -4,15 +4,8 @@ using UnityEngine;
 
 namespace TLY.TownActivities.NPC
 {
-    public class SkillTrainer:MonoBehaviour
+    public interface SkillTrainer
     {
-        public SkillBlock skillTeacher;
-
-        [SerializeField] private int _cost;
-
-        public void TeachSkill()
-        {
-
-        }
+        SkillBlock TrainSkill();
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine;
 using TLY.Controls;
+using TLY.TownActivities.NPC;
 
 namespace TLY.UI
 {
@@ -14,7 +15,9 @@ namespace TLY.UI
         
         [SerializeField] Text txtDisplay;
         [SerializeField] GameObject LowerTab;
+        [SerializeField] Button trainerButoon;
 
+        private string _targetName;
         private void Start()
         {
             if(txtDisplay == null)
@@ -27,9 +30,17 @@ namespace TLY.UI
                 Debug.LogError("There is no lower pannel.");
                 Debug.Break();
             }
+            
             txtDisplay.text = " ";
             LowerTab.SetActive(false);
+            trainerButoon.gameObject.SetActive(false);
         }
+
+        internal void EnguageTrainerOption()
+        {
+            
+        }
+
         public void ModifyText(string NewText)
         {
             if(txtDisplay.text != NewText)
@@ -38,8 +49,9 @@ namespace TLY.UI
                 txtDisplay.text = NewText;
             }
         }
-        public void EnterDialogue()
+        public void EnterDialogue(NPCCore NPC)
         {
+            _targetName = NPC.name;
             LowerTab.SetActive(true);
         }
         public void ExitDialogue()

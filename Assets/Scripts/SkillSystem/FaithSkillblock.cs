@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 namespace TLY.SkillSystem
 {
     public class FaithSkillblock:SkillBlock

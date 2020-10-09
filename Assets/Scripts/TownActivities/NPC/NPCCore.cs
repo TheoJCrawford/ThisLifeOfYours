@@ -13,18 +13,29 @@ namespace TLY.TownActivities.NPC
     {
         [SerializeField]public string npcName { get; set; }
         [SerializeField] public string gender { get; internal set; }
-        public int relation { get; internal set; }
+        [SerializeField] public int relation { get; internal set; }
+        [SerializeField] public int isSingle { get; set; }
         [SerializeField] public string IntroductionLine { get; set; }
-        [SerializeField] public List<string> dialoguelines { get; set; }
+        [SerializeField] public List<string> dialoguelines;
         public bool hasMet { get; internal set; }
+        public NPCState curState { get; set; }
 
-        
+        private NPCState lastState;
+
+        public enum NPCState
+        {
+            work,
+            talk,
+            transit,
+            relax
+        };
 
         internal NPCAnimator _anima;
 
         private void Awake()
         {
             _anima = GetComponent<NPCAnimator>();
+            curState = NPCState.transit;
         }
 
         public NPCCore()
@@ -39,6 +50,8 @@ namespace TLY.TownActivities.NPC
 
         public virtual void Speak(int direct)
         {
+            lastState = curState;
+            curState = NPCState.talk;
             _anima.SetDirection(direct);
             if (!hasMet)
             {
@@ -56,6 +69,10 @@ namespace TLY.TownActivities.NPC
                 Debug.Log(dialoguelines.ElementAt(RandomizeLines()));            
             }
             
+        }
+        public void LeaveSpeak()
+        {
+            curState = lastState;
         }
         #region In Editor lines
         public void ChangeGender(int NewGender)

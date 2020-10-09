@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
+using TLY.Core;
 using UnityEngine;
 
 namespace TLY.Combat
 {
     public class PlayerCombat:MonoBehaviour
     {
-        PlayerData _data;
-        
+        private PlayerData _data;
+
+        private void Awake()
+        {
+            _data = GetComponent<PlayerData>();
+        }
         public void Attack()
         {
             /*
@@ -20,18 +22,7 @@ namespace TLY.Combat
         }
         public void TakeHit(int damageIncoming)
         {
-            if(damageIncoming > 0)
-            {
-                _data.ModifyCurHealth(-damageIncoming);
-            }
-            else if( damageIncoming == 0)
-            {
-
-            }
-            else
-            {
-
-            }
+            
         }
     }
 }

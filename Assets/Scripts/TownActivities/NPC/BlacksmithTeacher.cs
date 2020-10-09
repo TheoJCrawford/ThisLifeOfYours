@@ -1,17 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TLY.SkillSystem;
-
+﻿using TLY.SkillSystem;
+using UnityEngine;
 namespace TLY.TownActivities.NPC
 {
-    class BlacksmithTeacher:SkillTrainer
+    public class BlacksmithTeacher:NPCCore,SkillTrainer
     {
-        public BlacksmithTeacher()
+        private string _inquiryLine = "Can I help you with something?";
+
+        public string inquiryLine { get => _inquiryLine; }
+        public override void Speak(int direct)
         {
-            skillTeacher = new SmithingSkillBlock();
+            if (hasMet)
+            {
+                switch (curState)
+                {
+                    case NPCState.work:
+                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(_inquiryLine);
+                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguageTrainerOption();
+                        break;
+                }
+            }
+            else
+            {
+                if (GameObject.Find("Deus"))
+                {
+                    Debug.Log("We found god!");
+                }
+                GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(IntroductionLine);
+
+                hasMet = true;
+            }
+        }
+        public SkillBlock TrainSkill()
+        {
+            return new SmithingSkillBlock();
         }
     }
 }
