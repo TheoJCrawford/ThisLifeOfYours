@@ -12,7 +12,7 @@ namespace TLY.TownActivities.NPC
     public class NPCCore : MonoBehaviour
     {
         [SerializeField]public string npcName { get; set; }
-        [SerializeField] public string gender { get; internal set; }
+        [SerializeField] public Gender gender { get; internal set; }
         [SerializeField] public int relation { get; internal set; }
         [SerializeField] public int isSingle { get; set; }
         [SerializeField] public string IntroductionLine { get; set; }
@@ -29,6 +29,12 @@ namespace TLY.TownActivities.NPC
             transit,
             relax
         };
+        public enum Gender
+    {
+        Male,
+        Female,
+        Unknown
+    }
 
         internal NPCAnimator _anima;
 
@@ -41,7 +47,7 @@ namespace TLY.TownActivities.NPC
         public NPCCore()
         {
             npcName = "Greg";
-            gender = "Male";
+            gender = Gender.Male;
             relation = 0;
             hasMet = false;
             IntroductionLine = "Hello, my name is Greg. \n Have we met before?";
@@ -75,25 +81,14 @@ namespace TLY.TownActivities.NPC
             curState = lastState;
         }
         #region In Editor lines
-        public void ChangeGender(int NewGender)
+        public void ChangeGender(NPCState newState)
         {
-            switch (NewGender)
-            {
-                case 0:
-                    gender = "Male";
-                    break;
-                case 1:
-                    gender = "Female";
-                    break;
-                case 2:
-                    gender = "Unknown";
-                    break;
-                default:
-                    Debug.Log("Dafuq?");
-                    break;
-            }
+            
         }
-
+        public void ChangeGender(Gender newGender)
+        {
+            gender = newGender;
+        }
         private int RandomizeLines()
         {
             System.Random randy = new System.Random();

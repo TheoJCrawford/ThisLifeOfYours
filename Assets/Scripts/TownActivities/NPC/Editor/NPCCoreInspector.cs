@@ -22,7 +22,7 @@ namespace TLY.TownActivities.NPC
             GUILayout.Label("Intro Line: ");
             npc.IntroductionLine = GUILayout.TextArea(npc.IntroductionLine);
             GUILayout.Label("Gender: " + npc.gender);
-            npc.ChangeGender(EditorGUILayout.Popup(_genderSelector, _genderOption));
+            
         }
     }
 }

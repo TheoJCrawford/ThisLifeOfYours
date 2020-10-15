@@ -21,12 +21,7 @@ namespace TLY.TownActivities.NPC
             }
             else
             {
-                if (GameObject.Find("Deus"))
-                {
-                    Debug.Log("We found god!");
-                }
                 GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(IntroductionLine);
-
                 hasMet = true;
             }
         }
