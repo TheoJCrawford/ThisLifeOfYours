@@ -4,14 +4,14 @@ namespace TLY.SkillSystem
 {
     public class SkillBlock
     {
-        protected string name { get;  set; }
-        protected string descript { get; set; }
-        protected Sprite icon { get; set; }
-        protected int level { get; set; }
+        public string name { get; protected set; }
+        public string descript { get; protected set; }
+        public Sprite icon { get; protected set; }
+        public int level { get; protected set; }
 
-        protected int expToLvel { get; set; }
-        protected int expPool { get; set; }
-        protected int exhaust { get; set; }
+        public int expToLvel { get; protected set; }
+        public int expPool { get; protected set; }
+        public int exhaust { get; protected set; }
 
         public void GainExperience(int Val)
         {

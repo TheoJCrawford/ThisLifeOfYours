@@ -9,13 +9,14 @@ namespace TLY.TownActivities.NPC
         public string inquiryLine { get => _inquiryLine; }
         public override void Speak(int direct)
         {
+            _anima.SetDirection(direct);
             if (hasMet)
             {
                 switch (curState)
                 {
                     case NPCState.work:
                         GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(_inquiryLine);
-                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguageTrainerOption();
+                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguageTrainerOption(gameObject);
                         break;
                 }
             }

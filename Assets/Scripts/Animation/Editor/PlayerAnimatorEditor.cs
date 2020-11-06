@@ -12,7 +12,10 @@ namespace TLY.Animation
         public override void OnInspectorGUI()
         {
             PlayerAnimator anima = (PlayerAnimator)target;
-            GUILayout.Label("Direction faced: " + directions.ElementAt(anima.DirectionCheck));
+            if (Application.isPlaying)
+            {
+                GUILayout.Label("Direction faced: " + directions.ElementAt(anima.DirectionCheck));
+            }
         }
     }
 }

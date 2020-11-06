@@ -11,7 +11,7 @@ namespace TLY.ItemSystem {
 
         public Armour()
         {
-            name = "General clothes";
+            itemName = "General clothes";
             ArmourValue = 1;
             coinValue = 5;
             reqs = new Dictionary<string, int>();

@@ -24,7 +24,7 @@ namespace TLY.ItemSystem
         public int GetNumItemType(string Name)
         {
 
-            return invent.Count(s => s.name == @Name);
+            return invent.Count(s => s.itemName == @Name);
         }
         public void AddItem(baseItem Item)
         {
@@ -37,7 +37,7 @@ namespace TLY.ItemSystem
         {
             for(int i = 0; i < invent.Count; i++)
             {
-                if(invent[i].name == @Name)
+                if(invent[i].itemName == @Name)
                 {
                     invent[i] = null;
                     break;
@@ -54,7 +54,7 @@ namespace TLY.ItemSystem
             int check = 0;
             foreach (baseItem item in invent)
             {
-                if (item.name == Name)
+                if (item.itemName == Name)
                 {
                     check++;
                 }
@@ -75,7 +75,7 @@ namespace TLY.ItemSystem
             }
             do
             {
-                invent.Remove(invent.First(x => x.name == @Name));
+                invent.Remove(invent.First(x => x.itemName == @Name));
                 Num--;
             } while (Num > 0);
         }

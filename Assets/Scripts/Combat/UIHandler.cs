@@ -1,63 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
 using TLY.Controls;
 using TLY.TownActivities.NPC;
+using TLY.Core;
 
 namespace TLY.UI
 {
    public class UIHandler:MonoBehaviour
     {
-        
-        [SerializeField] Text txtDisplay;
-        [SerializeField] GameObject LowerTab;
-        [SerializeField] Button trainerButoon;
+        #region UI
+        [SerializeField] Text _txtDisplay;
+        [SerializeField] GameObject _lowerTab;
+        [SerializeField] Button _trainerButoon;
+        [SerializeField] Image _healthBar;
+        #endregion
 
-        private string _targetName;
+        [SerializeField] PlayerData _player;
+
+        public GameObject _targetName;
         private void Start()
         {
-            if(txtDisplay == null)
+            if(_player == null)
+            {
+                Debug.LogError("THE FUCK YOU DOING?! NO PLAYER ATTACHED!");
+                Debug.Break();
+            }
+            if(_txtDisplay == null)
             {
                 Debug.LogError("No text for txt_Display");
                 Debug.Break();
             }
-            if(LowerTab == null)
+            if(_lowerTab == null)
             {
                 Debug.LogError("There is no lower pannel.");
                 Debug.Break();
             }
-            
-            txtDisplay.text = " ";
-            LowerTab.SetActive(false);
-            trainerButoon.gameObject.SetActive(false);
+            if(_healthBar == null)
+            {
+                Debug.LogError("There's no health bar");
+                Debug.Break();
+            }
+            _txtDisplay.text = " ";
+            _lowerTab.SetActive(false);
+            _trainerButoon.gameObject.SetActive(false);
+            _healthBar.fillAmount = _player.curHealth / _player.maxHealth;
+
         }
 
-        internal void EnguageTrainerOption()
+        private void Update()
+        {
+            _healthBar.fillAmount = _player.curHealth / _player.maxHealth;  
+        }
+        internal void EnguageTrainerOption(GameObject target)
+        {
+            _targetName = target;
+            _trainerButoon.gameObject.SetActive(true);
+        }
+        public void LearnNewSkill()
         {
             
-        }
+            if (_targetName.TryGetComponent(out BlacksmithTeacher  test))
+            {
+                Debug.Log("Found the Blacksmith trainer!!");
+                _player.AddNewSkillBlock(test.TrainSkill());
 
+            }
+            
+        }
         public void ModifyText(string NewText)
         {
-            if(txtDisplay.text != NewText)
+            if(_txtDisplay.text != NewText)
             {
-                LowerTab.SetActive(true);
-                txtDisplay.text = NewText;
+                _lowerTab.SetActive(true);
+                _txtDisplay.text = NewText;
             }
         }
-        public void EnterDialogue(NPCCore NPC)
+        public void EnterDialogue()
         {
-            _targetName = NPC.name;
-            LowerTab.SetActive(true);
+            _lowerTab.SetActive(true);
         }
         public void ExitDialogue()
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().LeaveConversation();
-            LowerTab.SetActive(false);
+            _targetName = null;
+            _player.GetComponent<PlayerControls>().LeaveConversation();
+            _lowerTab.SetActive(false);
         }
     }
 }

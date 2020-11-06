@@ -41,7 +41,6 @@ namespace TLY.TownActivities.NPC
         private void Awake()
         {
             _anima = GetComponent<NPCAnimator>();
-            curState = NPCState.transit;
         }
 
         public NPCCore()
@@ -80,11 +79,12 @@ namespace TLY.TownActivities.NPC
         {
             curState = lastState;
         }
-        #region In Editor lines
-        public void ChangeGender(NPCState newState)
+        public void ChhangeState(NPCState newState)
         {
-            
+
         }
+        #region In Editor lines
+
         public void ChangeGender(Gender newGender)
         {
             gender = newGender;

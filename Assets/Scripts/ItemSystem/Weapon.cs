@@ -13,7 +13,7 @@ namespace TLY.ItemSystem
 
         public Weapon()
         {
-            name = "Fists";
+            itemName = "Fists";
             descript = "These are your bare fists.";
             coinValue = 0;
             Damage = 5;

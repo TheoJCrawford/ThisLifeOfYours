@@ -11,22 +11,24 @@ namespace TLY.Core
     public class SaveData:ScriptableObject
     {
         public string charName;
-        [SerializeField] private int gender;
+        [SerializeField]public Gender gender;
 
         [Header("Core Stats")]
 
         [SerializeField] protected int maxHealth;
         
         [SerializeField] protected int maxStamina;
-        [SerializeField] private int curStamina;
+        
 
 
         [SerializeField] private Inventory inventory;
         [SerializeField] private List<SkillBlock> skills;
 
-        public string CharName { get => charName; }
+        public string CharName { get => charName; set => charName = value; }
         public int MaxHealth { get => maxHealth; }
         public int MaxStamina { get; internal set; }
+        public Inventory Invent { get => inventory; }
+        public List<SkillBlock> Skills { get => skills; }
 
         public SaveData()
         {
@@ -44,10 +46,6 @@ namespace TLY.Core
         {
             charName = NewName;
         }
-        public void ChangeGender(int val)
-        {
-            gender = Mathf.Clamp(val, 0, 2);
-        }
 
 
         public void ModifyMaxHealth(int Modifier)
@@ -59,4 +57,10 @@ namespace TLY.Core
             MaxStamina += Modifier;
         }
     }
+    public enum Gender
+    {
+        Male,
+        Female,
+        Unknown
+    };
 }
