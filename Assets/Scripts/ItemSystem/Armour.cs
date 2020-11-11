@@ -11,6 +11,7 @@ namespace TLY.ItemSystem {
 
         public Armour()
         {
+            
             itemName = "General clothes";
             ArmourValue = 1;
             coinValue = 5;

@@ -5638,7 +5638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 55.80024, y: -23.700012}
+  m_AnchoredPosition: {x: 55.800255, y: -23.700012}
   m_SizeDelta: {x: -74, y: -74.000015}
   m_Pivot: {x: 0.000000070780516, y: 0.5000001}
 --- !u!114 &648917571
@@ -6830,9 +6830,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ca46672c96e4846a6ddc4c7cd578d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: Furnace
-  stationType: 1
-  state: 
+  Title: 
+  stationType: 0
+  _recipes:
+  - returningNumber: 1
+    _output: {fileID: 0}
+    _canbeHQ: 1
 --- !u!61 &1915089461
 BoxCollider2D:
   m_ObjectHideFlags: 0

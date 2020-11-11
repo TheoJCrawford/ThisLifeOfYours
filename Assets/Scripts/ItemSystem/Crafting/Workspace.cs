@@ -7,10 +7,9 @@ namespace TLY.ItemSystem
     public class Workspace:MonoBehaviour
     {
         public string Title;
-        public CraftingClass stationType;
-        public string state;
+        public CraftingClass stationType;       
 
-        private List<Recipe> _recipes;
+        [SerializeField] private List<Recipe> _recipes;
     }
     public enum CraftingClass
     {

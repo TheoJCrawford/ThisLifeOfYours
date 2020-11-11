@@ -6,8 +6,6 @@ namespace TLY.ItemSystem
     [Serializable]
     public class baseItem:ScriptableObject
     {
-        [SerializeField]
-        
         public string itemName { get;  set; }
         public Sprite icon { get;  private set; }
         public string descript { get;  set; }

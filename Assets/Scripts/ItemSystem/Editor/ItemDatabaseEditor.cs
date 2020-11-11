@@ -76,13 +76,13 @@ namespace TLY.ItemSystem.Editor
             GUILayout.Label("Cost", GUILayout.ExpandWidth(false));
             EditorGUILayout.IntField(_newItem.coinValue);
             GUILayout.EndHorizontal();
-            if(GUILayout.Button(_newItem.icon.texture,GUILayout.Height(100), GUILayout.Width(100)))
-            {
-                EditorGUIUtility.ShowObjectPicker<Sprite>(_newItem.icon,false, " ", 0);
-            }
-            if(Event.current.commandName == "ObjectSelectorUpdated")
-            {
-                _newItem.ChangeIcon((Sprite)EditorGUIUtility.GetObjectPickerObject());
+            GUILayout.Label("Sprite: " + _newItem.icon);
+            if(GUILayout.Button("Change Sprite: ")){
+                EditorGUIUtility.ShowObjectPicker<Sprite>(_newItem.icon, false, "", 0);
+                if(Event.current.commandName == "ObjectSelectorUpdated")
+                {
+                    _newItem.ChangeIcon((Sprite)EditorGUIUtility.GetObjectPickerObject());
+                }
             }
             GUILayout.EndArea();
             #endregion
