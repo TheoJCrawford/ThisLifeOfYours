@@ -7,9 +7,20 @@ namespace TLY.ItemSystem.Editor
 {
     public class ItemDatabaseEditor : EditorWindow
     {
-        public List<baseItem> _items;
-        private baseItem _newItem;
-        private GUIContent _sprite;
+        private ItemDatabase itemDatabase;
+
+        private string _itemName;
+        private string _itemDescript;
+        private int _itemCost;
+        private Sprite _sprite;
+
+        private int damageVal;
+        private float _ar;
+        private MeleeWeaponTypes MeleeWeaponType;
+        private RangedWeaponType RangedWeaponTyp;
+       
+        private enum ItemConstructing { none, baseItem, mWeapon, rWeapon, Armor, Consumable};
+        private ItemConstructing ItemCon;
 
         private int index = -1;
 
@@ -17,7 +28,6 @@ namespace TLY.ItemSystem.Editor
         private static void OnEnable()
         {
             ItemDatabaseEditor window = (ItemDatabaseEditor)EditorWindow.GetWindow<ItemDatabaseEditor>();
-
             window.minSize = new Vector2(600, 600);
             window.maxSize = new Vector2(600, 600);
             window.Show();
@@ -33,59 +43,53 @@ namespace TLY.ItemSystem.Editor
             
             #region SideBar
             GUILayout.BeginArea(new Rect(10,10,180,600));
-            if(GUILayout.Button("Add Item"))
+            if(GUILayout.Button("New Item"))
             {
-                _items.Add(_newItem);
-                _newItem = new baseItem();
+                ItemCon = ItemConstructing.baseItem;
             }
-            if(GUILayout.Button("Clear Item"))
+            if (GUILayout.Button("New Melee Weapon"))
             {
-                _newItem = CreateInstance<baseItem>();
+                ItemCon = ItemConstructing.mWeapon;
+            }
+            if(GUILayout.Button("New Ranged Weapon"))
+            {
+                ItemCon = ItemConstructing.rWeapon;
+            }
+            if(GUILayout.Button("New Armor"))
+            {
+                ItemCon = ItemConstructing.Armor;
+            }
+            if (GUILayout.Button("Save New Item"))
+            {
+
+            }
+            if (GUILayout.Button("Clear Item"))
+            {
+                
             }
             if(GUILayout.Button("Purge Items"))
             {
-                _items = new List<baseItem>();
+                
             }
-            if(_items.Count > 0)
-            {
-                GUILayout.BeginHorizontal();
-                for(int i = 0; i< _items.Count; i++)
-                {
-                    if (GUILayout.Button(_items.ElementAt(i).name))
-                    {
-                        index = i;
-                        _newItem = _items.ElementAt(i);
-                    }
-                    if (GUILayout.Button("X", GUILayout.ExpandWidth(false)))
-                    {
-                        _items.RemoveAt(i);
-                    }
-                }
-                GUILayout.EndHorizontal();
-            }
+            
             GUILayout.EndArea();
             #endregion
-            #region Core Editor
-            GUILayout.BeginArea(new Rect(200, 10, 400, 600));
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Name: ", GUILayout.ExpandWidth(false));
-            _newItem.name = GUILayout.TextArea(_newItem.name);
-            GUILayout.EndHorizontal();
-            EditorGUILayout.Space();
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Cost", GUILayout.ExpandWidth(false));
-            EditorGUILayout.IntField(_newItem.coinValue);
-            GUILayout.EndHorizontal();
-            GUILayout.Label("Sprite: " + _newItem.icon);
-            if(GUILayout.Button("Change Sprite: ")){
-                EditorGUIUtility.ShowObjectPicker<Sprite>(_newItem.icon, false, "", 0);
-                if(Event.current.commandName == "ObjectSelectorUpdated")
-                {
-                    _newItem.ChangeIcon((Sprite)EditorGUIUtility.GetObjectPickerObject());
-                }
+            #region Main Editor
+            switch (ItemCon)
+            {
+                case ItemConstructing.baseItem:
+                    break;
+                case ItemConstructing.mWeapon:
+                    break;
+                case ItemConstructing.rWeapon:
+                    break;
+                case ItemConstructing.Armor:
+                    break;
+                default:
+                    break;
             }
-            GUILayout.EndArea();
             #endregion
         }
+
     }
 }

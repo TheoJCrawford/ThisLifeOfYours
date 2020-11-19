@@ -37,6 +37,7 @@ namespace TLY.Controls
             switch (_state)
             {
                 case ControlState.Moving:
+                    SprintCheck();
                     TakeMoveInput();
                     CombatInput();
                     break;
@@ -52,6 +53,17 @@ namespace TLY.Controls
             }
             IntractInput();
 
+        }
+        private void SprintCheck()
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _mover.sprintState(true);
+            }
+            else
+            {
+                _mover.sprintState(false);
+            }
         }
         private void TakeMoveInput()
         {
@@ -105,7 +117,7 @@ namespace TLY.Controls
                                 break;
                             case 3:
                                 ray = Physics2D.Raycast(transform.position, Vector2.left, 1f);
-                                _faceMe = 3;
+                                _faceMe = 1;
                                 break;
                             default:
                                 ray = Physics2D.Raycast(transform.position, Vector2.down, 1f);

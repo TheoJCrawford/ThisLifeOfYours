@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace TLY.Movement
 {
@@ -6,13 +7,12 @@ namespace TLY.Movement
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] public float moveSpeed = 2f;
-        [SerializeField] public float runSpeedl = 5f;
-        public float sprintSpeed { get; set; }
-
+        [SerializeField] public float runSpeed = 5f;
 
         private Vector2 _moveDirection;
         private Vector2 _lookPos;
         private Rigidbody2D _self;
+        private bool _isSprinting;
         // Start is called before the first frame update
         void Start()
         {
@@ -21,6 +21,7 @@ namespace TLY.Movement
             {
                 _self.gravityScale = 0f;
             }
+            _isSprinting = false;
         }
 
         // Update is called once per frame
@@ -53,7 +54,20 @@ namespace TLY.Movement
             {
                 _moveDirection.Normalize();
             }
-            _moveDirection *= moveSpeed;
+
+            if (_isSprinting)
+            {
+                _moveDirection *= runSpeed;
+            }
+            else
+            {
+                _moveDirection *= moveSpeed;
+            }
+        }
+
+        internal void sprintState(bool v)
+        {
+            _isSprinting = v;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace TLY.Movement
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
             GUILayout.Label("Run: ", GUILayout.ExpandWidth(false));
-            player.runSpeedl = EditorGUILayout.Slider(player.runSpeedl, 1f, 50f);
+            player.runSpeed = EditorGUILayout.Slider(player.runSpeed, 1f, 50f);
             GUILayout.EndHorizontal();
         }
     }
