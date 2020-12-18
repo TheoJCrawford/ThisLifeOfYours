@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace TLY.Animation
 {
@@ -6,5 +7,9 @@ namespace TLY.Animation
     public class PlayerAnimator : EntityAnimator
     {
 
+       internal void SetSpritState(bool v)
+        {
+            _anima.SetBool("isSprinting", v);
+        }
     }
 }

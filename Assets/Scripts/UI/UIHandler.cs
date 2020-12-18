@@ -12,7 +12,8 @@ namespace TLY.UI
         [SerializeField] Text _txtDisplay;
         [SerializeField] GameObject _lowerTab;
         [SerializeField] Button _trainerButoon;
-        [SerializeField] Image _healthBar;
+        [SerializeField] Text _healthBar;
+        [SerializeField] Text _staminahBar;
         #endregion
 
         [SerializeField] PlayerData _player;
@@ -43,13 +44,15 @@ namespace TLY.UI
             _txtDisplay.text = " ";
             _lowerTab.SetActive(false);
             _trainerButoon.gameObject.SetActive(false);
-            _healthBar.fillAmount = _player.curHealth / _player.maxHealth;
+            _healthBar.text =  "Health: "+ _player.Health.ToString();
+            _staminahBar.text = "Stamina: " + _player.Stamina.ToString();
 
         }
 
         private void Update()
         {
-            _healthBar.fillAmount = _player.curHealth / _player.maxHealth;  
+            _healthBar.text = _player.Health.VitalName + _player.Health.ToString();
+            _staminahBar.text = "Stamina: " + _player.Stamina.ToString();
         }
         internal void EnguageTrainerOption(GameObject target)
         {

@@ -43,7 +43,7 @@ namespace TLY.Core
                 GUILayout.Label("Name: ");
                 player.charName = GUILayout.TextField(player.charName);
                 player.gender = (Gender)EditorGUILayout.EnumPopup(player.gender);
-                if(player.Skills.Count> 0)
+                if(player.Skills.Count> 0 || player.Skills == null)
                 {
                     for(int i = 0; i > player.Skills.Count; i++)
                     {

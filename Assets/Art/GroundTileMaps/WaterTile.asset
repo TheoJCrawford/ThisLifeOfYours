@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: WaterTile
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -8426335256765055634, guid: 0bcc795fb4281ca49a37231ad5bc2b0b, type: 3}
-  - {fileID: 318042410866195559, guid: 0bcc795fb4281ca49a37231ad5bc2b0b, type: 3}
-  - {fileID: 1217766526518331039, guid: 0bcc795fb4281ca49a37231ad5bc2b0b, type: 3}
-  - {fileID: -781413486366440719, guid: 0bcc795fb4281ca49a37231ad5bc2b0b, type: 3}
-  - {fileID: 6671440674762319601, guid: 0bcc795fb4281ca49a37231ad5bc2b0b, type: 3}
-  - {fileID: 4611669963109235353, guid: 0bcc795fb4281ca49a37231ad5bc2b0b, type: 3}
-  - {fileID: -284354010249448057, guid: 0bcc795fb4281ca49a37231ad5bc2b0b, type: 3}
-  - {fileID: -8025436348965859816, guid: 0bcc795fb4281ca49a37231ad5bc2b0b, type: 3}
+  - {fileID: 5470193867871099694, guid: 816214f9336812e4786a660fd63417a2, type: 3}
+  - {fileID: 912119701777424791, guid: 816214f9336812e4786a660fd63417a2, type: 3}
+  - {fileID: 2787820464827376564, guid: 816214f9336812e4786a660fd63417a2, type: 3}
+  - {fileID: 6701887265336153548, guid: 816214f9336812e4786a660fd63417a2, type: 3}
+  - {fileID: 364346899496035792, guid: 816214f9336812e4786a660fd63417a2, type: 3}
+  - {fileID: 5442015295272206040, guid: 816214f9336812e4786a660fd63417a2, type: 3}
+  - {fileID: 3167546122353876128, guid: 816214f9336812e4786a660fd63417a2, type: 3}
+  - {fileID: 5630347283450000139, guid: 816214f9336812e4786a660fd63417a2, type: 3}
   m_MinSpeed: 0.24
   m_MaxSpeed: 0.24
   m_AnimationStartTime: 0

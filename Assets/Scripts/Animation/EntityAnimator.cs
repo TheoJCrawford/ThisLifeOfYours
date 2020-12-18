@@ -4,7 +4,7 @@ namespace TLY.Animation
 {
     public class EntityAnimator:MonoBehaviour
     {
-        private Animator _anima;
+        internal Animator _anima;
         public bool IsMoving { get; private set; }
         public int DirectionCheck { get => _anima.GetInteger("FacingDirection"); }
         //Action State

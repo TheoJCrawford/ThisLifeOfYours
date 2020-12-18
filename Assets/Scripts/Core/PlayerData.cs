@@ -12,10 +12,10 @@ namespace TLY.Core
     {
         public string charName { get; set; }
         public Gender gender { get; set; }
-        public int curHealth { get; internal set; }
-        public int maxHealth { get; internal set; }
-        public int curStamina { get; internal set; }
-        public int maxStamina { get; internal set; }
+
+        public Vital Health { get; set; }
+        public Vital Stamina { get; set; }
+        
         public Inventory inventory { get; internal set; }
         public List<SkillBlock> Skills {get; internal set; }
 
@@ -27,18 +27,13 @@ namespace TLY.Core
             if(save != null)
             {
                 charName = save.CharName;
-                maxHealth = save.MaxHealth;
-                curHealth = maxHealth;
-                maxStamina = save.MaxStamina;
-                curStamina = maxStamina;
                 inventory = save.Invent;
                 Skills = save.Skills;
             }
             else
             {
-                maxHealth = 100;
-                curHealth = maxHealth;
-                maxStamina = 100;
+                Health = new Vital("Health");
+                Stamina = new Vital("Stamina");
                 inventory = new Inventory();
                 Skills = new List<SkillBlock>();
             }
@@ -48,21 +43,13 @@ namespace TLY.Core
         {
             /*
              * When firing this function: 
-             * For damage, Val must be positive
-             * For healing, Val must be negative
+             * For damage, Val must be negative
+             * For healing, Val must be positive
              */
-            if(curHealth - Val < 0)
-            {
-                curHealth = 0;
-            }
-            else if( curHealth - Val >= maxHealth)
-            {
-                curHealth = maxHealth;
-            }
-            else
-            {
-                curHealth -= Val;
-            }
+        }
+        public void ModifyStamina(int Val)
+        {
+            
         }
 
         public void AddNewSkillBlock( SkillBlock newSkill){

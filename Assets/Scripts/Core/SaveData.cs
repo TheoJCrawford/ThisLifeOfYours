@@ -14,10 +14,7 @@ namespace TLY.Core
         [SerializeField]public Gender gender;
 
         [Header("Core Stats")]
-
-        [SerializeField] protected int maxHealth;
-        
-        [SerializeField] protected int maxStamina;
+        [SerializeField] protected Vital health;
         
 
 
@@ -25,8 +22,8 @@ namespace TLY.Core
         [SerializeField] private List<SkillBlock> skills;
 
         public string CharName { get => charName; set => charName = value; }
-        public int MaxHealth { get => maxHealth; }
-        public int MaxStamina { get; internal set; }
+        public Vital Health => health;
+        public Vital Stamina { get; internal set; }
         public Inventory Invent { get => inventory; }
         public List<SkillBlock> Skills { get => skills; }
 
@@ -34,9 +31,8 @@ namespace TLY.Core
         {
             charName = "Lennom";
             gender = 0;
-            maxHealth = 100;
-            maxStamina = 100;
-
+            health = new Vital("Health");
+            Stamina = new Vital("Stamina");
             inventory = new Inventory();
             skills = new List<SkillBlock>();
         }
@@ -50,11 +46,11 @@ namespace TLY.Core
 
         public void ModifyMaxHealth(int Modifier)
         {
-            maxHealth += Modifier;
+            health.ModifyMaxVital(Modifier);
         }
         public void ModifyMaxStamina(int Modifier)
         {
-            MaxStamina += Modifier;
+        
         }
     }
     public enum Gender

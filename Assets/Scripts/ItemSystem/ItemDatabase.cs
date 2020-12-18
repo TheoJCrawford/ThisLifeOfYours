@@ -7,46 +7,32 @@ namespace TLY.ItemSystem
     [System.Serializable]
     public class ItemDatabase
     {
-        private const string FILE_PATH = "Asset/Database";
-        private const string FOLDER_NAME = "Database";
-        private const string FILE_NAME = "Item Databases.json";
+        private System.Data.DataTable _dataSet;
 
-        public List<baseItem> Items;
-        public List<MeleeWeapon> mWeapons;
-        public List<RangedWeapon> rWeapons;
-        public List<Armor> Armours;
-
-        public void Initialize()
+        private void MakeDataTables()
         {
-            Items = new List<baseItem>();
-            mWeapons = new List<MeleeWeapon>();
-            rWeapons = new List<RangedWeapon>();
-        }
+            _dataSet = new System.Data.DataTable();
 
-        public void SaveDatabase()
-        {
-            string[] tempSave = { JsonUtility.ToJson(Items), JsonUtility.ToJson(mWeapons), JsonUtility.ToJson(rWeapons), JsonUtility.ToJson(Armours)};
-            string finalSave = JsonUtility.ToJson(tempSave);
-            Debug.Log(finalSave);
-        }
-        public void LoadItems()
-        {
-            StreamReader reader = new StreamReader(FILE_PATH + FILE_NAME,true);
-            if (reader == null)
-            {
-                Initialize();
-                return;
-            }
-            else
-            {
-                string file = reader.ReadToEnd();
-                string[] tempLoad = JsonUtility.FromJson<string[]>(file);
+            System.Data.DataColumn column1 = new System.Data.DataColumn();
+            column1.ColumnName = "ID";
+            column1.DataType = System.Type.GetType("System.Int64");
+            column1.ReadOnly = true;
+            column1.Unique = true;
+            _dataSet.Columns.Add(column1);
 
-                Items = JsonUtility.FromJson<List<baseItem>>(tempLoad[0]);
-                mWeapons = JsonUtility.FromJson<List<MeleeWeapon>>(tempLoad[1]);
-                rWeapons = JsonUtility.FromJson<List<RangedWeapon>>(tempLoad[2]);
-                Armours = JsonUtility.FromJson<List<Armor>>(tempLoad[3]);
-            }
+            System.Data.DataColumn column2 = new System.Data.DataColumn();
+            column2.ColumnName = "Item Name";
+            column2.DataType = System.Type.GetType("System.String");
+            column2.Unique = true;
+            _dataSet.Columns.Add(column2);
+
+            System.Data.DataColumn column3 = new System.Data.DataColumn();
+            column3.ColumnName = "Description";
+            column2.DataType = System.Type.GetType("System.String");
+
+            System.Data.DataColumn column4 = new System.Data.DataColumn();
+            column4.ColumnName = "Sprite";
+            column4.DataType = System.Type.GetType("Sprite");
         }
     }
 }

@@ -51,18 +51,22 @@ namespace TLY.Controls
                     Debug.LogError("Oi, you dumb shit! We don't have anything perscribed to this ");
                     break;
             }
-            IntractInput();
-
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                IntractInput();
+            }
         }
         private void SprintCheck()
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 _mover.sprintState(true);
+                _anima.SetSpritState(true);
             }
             else
             {
                 _mover.sprintState(false);
+                _anima.SetSpritState(false);
             }
         }
         private void TakeMoveInput()
@@ -100,7 +104,6 @@ namespace TLY.Controls
         private void IntractInput()
         {
             int _faceMe;
-            if(Input.GetKeyDown(KeyCode.E))
             switch (_state)
             {
                 case ControlState.Moving:
@@ -110,7 +113,7 @@ namespace TLY.Controls
                             case 1:
                                 ray = Physics2D.Raycast(transform.position, Vector2.right, 1f);
                                 _faceMe = 3;
-                                break;
+                            break;
                             case 2:
                                 ray = Physics2D.Raycast(transform.position, Vector2.up, 1f);
                                 _faceMe = 0;
@@ -118,11 +121,11 @@ namespace TLY.Controls
                             case 3:
                                 ray = Physics2D.Raycast(transform.position, Vector2.left, 1f);
                                 _faceMe = 1;
-                                break;
+                            break;
                             default:
                                 ray = Physics2D.Raycast(transform.position, Vector2.down, 1f);
                                 _faceMe = 2;
-                                break;
+                            break;
                         }
                         if (ray != false)
                         {
