@@ -2,6 +2,7 @@
 
 namespace TLY.Animation
 {
+    [RequireComponent(typeof(Animator))]
     public class EntityAnimator:MonoBehaviour
     {
         internal Animator _anima;

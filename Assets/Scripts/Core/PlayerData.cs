@@ -1,10 +1,8 @@
 ﻿using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine;
-using TLY.ItemSystem;
 using TLY.SkillSystem;
 using System;
-using UnityEditorInternal;
 
 namespace TLY.Core
 {
@@ -16,7 +14,6 @@ namespace TLY.Core
         public Vital Health { get; set; }
         public Vital Stamina { get; set; }
         
-        public Inventory inventory { get; internal set; }
         public List<SkillBlock> Skills {get; internal set; }
 
         
@@ -27,14 +24,12 @@ namespace TLY.Core
             if(save != null)
             {
                 charName = save.CharName;
-                inventory = save.Invent;
                 Skills = save.Skills;
             }
             else
             {
                 Health = new Vital("Health");
                 Stamina = new Vital("Stamina");
-                inventory = new Inventory();
                 Skills = new List<SkillBlock>();
             }
         }

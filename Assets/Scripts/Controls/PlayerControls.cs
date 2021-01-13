@@ -5,8 +5,8 @@ using System.Collections;
 
 namespace TLY.Controls
 {
-    [RequireComponent(typeof(PlayerMovement))]
-    [RequireComponent(typeof(PlayerAnimator))]
+    [RequireComponent(typeof(PlayerMovement), typeof(PlayerAnimator))]
+    
     public class PlayerControls : MonoBehaviour
     {
         private enum ControlState
@@ -53,7 +53,7 @@ namespace TLY.Controls
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                IntractInput();
+                InteractInput();
             }
         }
         private void SprintCheck()
@@ -101,7 +101,7 @@ namespace TLY.Controls
         {
             _anima.EndMovement();
         }
-        private void IntractInput()
+        private void InteractInput()
         {
             int _faceMe;
             switch (_state)

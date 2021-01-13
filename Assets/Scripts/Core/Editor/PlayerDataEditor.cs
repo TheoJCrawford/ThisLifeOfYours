@@ -68,16 +68,6 @@ namespace TLY.Core
                         GUILayout.Label(player.save.Skills[i].name);
                     }
                 }
-                if(player.save.Invent.invent.Count > 0)
-                {
-                    for(int i = 0; i< player.save.Invent.invent.Count; i++)
-                    {
-                        GUILayout.BeginHorizontal();
-                        GUILayout.Label(player.save.Invent.invent.ElementAt(i).name);
-                        GUILayout.Button("X", GUILayout.ExpandWidth(false));
-                    }
-                }
-               
             }
             #endregion
         }

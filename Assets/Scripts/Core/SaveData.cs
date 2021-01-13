@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using TLY.ItemSystem;
 using TLY.SkillSystem;
 
 namespace TLY.Core
@@ -16,15 +15,11 @@ namespace TLY.Core
         [Header("Core Stats")]
         [SerializeField] protected Vital health;
         
-
-
-        [SerializeField] private Inventory inventory;
         [SerializeField] private List<SkillBlock> skills;
 
         public string CharName { get => charName; set => charName = value; }
         public Vital Health => health;
         public Vital Stamina { get; internal set; }
-        public Inventory Invent { get => inventory; }
         public List<SkillBlock> Skills { get => skills; }
 
         public SaveData()
@@ -33,7 +28,6 @@ namespace TLY.Core
             gender = 0;
             health = new Vital("Health");
             Stamina = new Vital("Stamina");
-            inventory = new Inventory();
             skills = new List<SkillBlock>();
         }
 
