@@ -1,12 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine;
 
-public class ItemCore
+[CreateAssetMenu(menuName ="TLY/Items/Base Item", fileName ="New Base Item.asset")]
+public class ItemCore:ScriptableObject
 {
-    private string _itemName;
-    private int _itemID;
-    private int _cost;
-    private ItemType _type;
+    [SerializeField] private string _itemName;
+    [SerializeField] private string _itemDesc;
+    [SerializeField] private int _itemID;
+    [SerializeField] private int _cost;
+    [SerializeField] private ItemType _type;
 
-    private enum ItemType { }
+    public string itemName => _itemName;
+    public string itemDes => _itemDesc;
+    public int itemID => _itemID;
+    public virtual void UseItem()
+    {
+
+    }
+    public virtual void DropItem()
+    {
+
+    }
+    
+    internal void ChangeItemType(ItemType newType)
+    {
+        _type = newType;
+    }
 }
+public enum ItemType { Consumable, Equipment, Material }

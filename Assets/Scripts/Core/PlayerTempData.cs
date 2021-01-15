@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TLY.Core
 {
-    [CreateAssetMenu(fileName = "TempData", menuName = "TYL/Character/Temp Save Data")]
+    [CreateAssetMenu(fileName = "TempData", menuName = "TLY/Character/Temp Save Data")]
     public class PlayerTempData : ScriptableObject
     {
         [SerializeField] protected int _curHealth;
