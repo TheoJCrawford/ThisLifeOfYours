@@ -7,16 +7,22 @@ namespace TLY.ItemSystem
     {
         public enum SkillDependant { Martial, Brawling, Thievery}
         
-        [SerializeField]private int damageVal;
+        [SerializeField]private int _damageVal;
+        [SerializeField] private int _magicVal;
         [SerializeField] private float _attackSpeed;
-        [SerializeField] private SkillDependant skillReq;
-        [SerializeField] private int levelReq;
+        [SerializeField] private SkillDependant _skillReq;
+        [SerializeField] private int _levelReq;
+        
+        public int damage => _damageVal;
+        public int magic => _magicVal;
+        public float attackSpeed => _attackSpeed;
+        public SkillDependant skillRequired=> _skillReq;
+        public int levelRequired => _levelReq;
 
         public MeleeWeapon()
         {
             SetEquipType(EquiableType.Hand);
         }
-        public int damage => damageVal;
-        public float attackSpeed => _attackSpeed;
+        
     }
 }

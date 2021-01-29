@@ -363,7 +363,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: FacingDirection
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3030545838195291892}
   m_Solo: 0
@@ -572,7 +575,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: FacingDirection
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -306481175254194267}
   m_Solo: 0
@@ -1117,10 +1123,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8580700774550385756}
-    m_Position: {x: 490, y: 150, z: 0}
+    m_Position: {x: 530, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6722443952754717148}
-    m_Position: {x: 880, y: -20, z: 0}
+    m_Position: {x: 860, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5587988998398793127}
     m_Position: {x: 500, y: -330, z: 0}
@@ -1132,7 +1138,7 @@ AnimatorStateMachine:
     m_Position: {x: 1080, y: -540, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -946961865978442490}
-    m_Position: {x: 820, y: -470, z: 0}
+    m_Position: {x: 860, y: -420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2671046801922990631}
     m_Position: {x: 1350, y: -340, z: 0}
@@ -1141,13 +1147,13 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: -200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3030545838195291892}
-    m_Position: {x: 890, y: 310, z: 0}
+    m_Position: {x: 690, y: 570, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6873684724578866965}
     m_Position: {x: 90, y: -270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 927103653078917328}
-    m_Position: {x: 1830, y: -260, z: 0}
+    m_Position: {x: 1890, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -306481175254194267}
     m_Position: {x: 880, y: -700, z: 0}

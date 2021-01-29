@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: WaterTile
+  m_Name: Water Down RiverTile
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
   - {fileID: 5470193867871099694, guid: 816214f9336812e4786a660fd63417a2, type: 3}
@@ -21,8 +21,8 @@ MonoBehaviour:
   - {fileID: 5442015295272206040, guid: 816214f9336812e4786a660fd63417a2, type: 3}
   - {fileID: 3167546122353876128, guid: 816214f9336812e4786a660fd63417a2, type: 3}
   - {fileID: 5630347283450000139, guid: 816214f9336812e4786a660fd63417a2, type: 3}
-  m_MinSpeed: 0.24
-  m_MaxSpeed: 0.24
+  m_MinSpeed: 0.12
+  m_MaxSpeed: 0.12
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 2

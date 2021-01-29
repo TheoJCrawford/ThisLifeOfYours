@@ -40,9 +40,11 @@ namespace TLY.Controls
                     SprintCheck();
                     TakeMoveInput();
                     CombatInput();
+                    CharPageInput();
                     break;
                 case ControlState.Menu:
-                    MenuInput();
+                    PauseMenuInput();
+                    CharPageInput();
                     break;
                 case ControlState.Converse:
                     TakeTalkInput();
@@ -163,7 +165,23 @@ namespace TLY.Controls
                 //Combat.Attack
             }
         }
-        private void MenuInput()
+        private void CharPageInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if(_state == ControlState.Moving)
+                {
+                    _state = ControlState.Menu;
+                    GameObject.Find("Deus").GetComponent<UI.UIHandler>().CharacterScreenOn();
+                }
+                else
+                {
+                    _state = ControlState.Moving;
+                    GameObject.Find("Deus").GetComponent<UI.UIHandler>().CharacterScreenOn();
+                }
+            }
+        }
+        private void PauseMenuInput()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {

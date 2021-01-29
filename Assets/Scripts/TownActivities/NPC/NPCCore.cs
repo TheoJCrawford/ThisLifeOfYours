@@ -64,13 +64,12 @@ namespace TLY.TownActivities.NPC
                 {
                     Debug.Log("We found god!");
                 }
-                GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(IntroductionLine);
+                
 
                 hasMet = true;
             }
             else
             {
-                GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(dialoguelines.ElementAt(RandomizeLines()));
                 Debug.Log(dialoguelines.ElementAt(RandomizeLines()));            
             }
             

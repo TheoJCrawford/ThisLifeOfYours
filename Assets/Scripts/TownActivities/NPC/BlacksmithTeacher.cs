@@ -15,14 +15,17 @@ namespace TLY.TownActivities.NPC
                 switch (curState)
                 {
                     case NPCState.work:
-                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(_inquiryLine);
-                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguageTrainerOption(gameObject);
+                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguagePerson(this);
+                        break;
+                    case NPCState.talk:
+                        
+                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguagePerson(this);
                         break;
                 }
             }
             else
             {
-                GameObject.Find("Deus").GetComponent<UI.UIHandler>().ModifyText(IntroductionLine);
+                GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguagePerson(this);
                 hasMet = true;
             }
         }

@@ -3,22 +3,25 @@ using UnityEngine;
 using TLY.Controls;
 using TLY.TownActivities.NPC;
 using TLY.Core;
+using System;
 
 namespace TLY.UI
 {
    public class UIHandler:MonoBehaviour
     {
         #region UI
-        [SerializeField] Text _txtDisplay;
-        [SerializeField] GameObject _lowerTab;
-        [SerializeField] Button _trainerButoon;
-        [SerializeField] Text _healthBar;
-        [SerializeField] Text _staminahBar;
+        
+        [SerializeField] private GameObject _lowerTab;
+        [SerializeField] private GameObject _itemTab;
+        [SerializeField] private Button _trainerButoon;
+        [SerializeField] private Text _txtDisplay;
+        [SerializeField] private Text _healthBar;
+        [SerializeField] private Text _staminahBar;
         #endregion
 
-        [SerializeField] PlayerData _player;
+        [SerializeField] private PlayerData _player;
 
-        public GameObject _targetName;
+        public NPCCore _targetName;
         private void Start()
         {
             if(_player == null)
@@ -43,7 +46,8 @@ namespace TLY.UI
             }
             _txtDisplay.text = " ";
             _lowerTab.SetActive(false);
-            _trainerButoon.gameObject.SetActive(false);
+            //_trainerButoon.gameObject.SetActive(false);
+            _itemTab.SetActive(false);
             _healthBar.text =  "Health: "+ _player.Health.ToString();
             _staminahBar.text = "Stamina: " + _player.Stamina.ToString();
 
@@ -54,30 +58,37 @@ namespace TLY.UI
             _healthBar.text = _player.Health.VitalName + _player.Health.ToString();
             _staminahBar.text = "Stamina: " + _player.Stamina.ToString();
         }
-        internal void EnguageTrainerOption(GameObject target)
+        internal void EnguagePerson(NPCCore npc)
         {
-            _targetName = target;
-            _trainerButoon.gameObject.SetActive(true);
+            _targetName = npc;
+            if (_targetName.GetComponent<NPCCore>().hasMet &&_targetName.GetType().IsAssignableFrom(typeof(SkillTrainer)))
+            {
+                EnterDialogue();
+                SkillTrainer trainer = (SkillTrainer)_targetName;
+                ModifyText(trainer.inquiryLine);
+                _trainerButoon.gameObject.SetActive(true);
+            }
+            if (_targetName.GetComponent<NPCCore>().hasMet)
+            {
+                EnterDialogue();
+                ModifyText(_targetName.dialoguelines.Count.ToString());
+            }
+            else
+            {
+                EnterDialogue();
+                ModifyText(npc.IntroductionLine);
+                _trainerButoon.gameObject.SetActive(false);
+            }
         }
         public void LearnNewSkill()
         {
-            
-            if (_targetName.TryGetComponent(out BlacksmithTeacher  test))
-            {
+            SkillTrainer trainer = (SkillTrainer)_targetName;
                 Debug.Log("Found the Blacksmith trainer!!");
-                _player.AddNewSkillBlock(test.TrainSkill());
+                _player.AddNewSkillBlock(trainer.TrainSkill());
 
-            }
             
         }
-        public void ModifyText(string NewText)
-        {
-            if(_txtDisplay.text != NewText)
-            {
-                _lowerTab.SetActive(true);
-                _txtDisplay.text = NewText;
-            }
-        }
+
         public void EnterDialogue()
         {
             _lowerTab.SetActive(true);
@@ -87,6 +98,25 @@ namespace TLY.UI
             _targetName = null;
             _player.GetComponent<PlayerControls>().LeaveConversation();
             _lowerTab.SetActive(false);
+        }
+        public void CharacterScreenOn()
+        {
+            if (!_itemTab.activeSelf)
+            {
+                _itemTab.SetActive(true);
+            }
+            else
+            {
+                _itemTab.SetActive(false);
+            }
+        }
+        
+        private void ModifyText(string NewText)
+        {
+            if (_txtDisplay.text != NewText)
+            {
+                _txtDisplay.text = NewText;
+            }
         }
     }
 }

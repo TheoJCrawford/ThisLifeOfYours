@@ -6,6 +6,7 @@ namespace TLY.TownActivities.NPC
 {
     public interface SkillTrainer
     {
+        string inquiryLine { get; }
         SkillBlock TrainSkill();
     }
 }

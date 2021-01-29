@@ -14,6 +14,7 @@ namespace TLY.TownActivities.NPC
             #region
             GUILayout.Label("Name: ");
             trainer.npcName = GUILayout.TextField(trainer.npcName);
+            GUILayout.Label("Have I met you? " + trainer.hasMet);
             if(GUILayout.Button("Update Intro-line")){
                 trainer.IntroductionLine = "Hello, I'm " + trainer.npcName + ". Nice to meet you.";
             }

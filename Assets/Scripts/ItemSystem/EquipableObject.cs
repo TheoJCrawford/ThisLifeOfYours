@@ -3,7 +3,7 @@ namespace TLY.ItemSystem
 {
     public class EquipableObject:ItemCore
     {
-        public enum EquiableType {Hand, Body, Accessory };
+        public enum EquiableType {Hand, Head, Body, Accessory };
 
         [SerializeField] private EquiableType _equipType;
 

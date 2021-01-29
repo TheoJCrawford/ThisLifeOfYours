@@ -8,6 +8,7 @@ namespace TLY.ItemSystem
         public enum SkillDependant { Thaumatergy, Tinker, Martial };
 
         [SerializeField] private int _damage;
+        [SerializeField] private int _magic;
         [SerializeField] private float _attackSpeed;
         [SerializeField] private SkillDependant skillReq;
         [SerializeField] private int levelReq;
@@ -19,6 +20,7 @@ namespace TLY.ItemSystem
         }
 
         public int damage => _damage;
+        public int magic => _magic;
         public float attackSpeed => _attackSpeed;
     }
 }
