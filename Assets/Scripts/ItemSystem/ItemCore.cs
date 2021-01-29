@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+
 
 [CreateAssetMenu(menuName ="TLY/Items/Base Item", fileName ="New Base Item.asset")]
 public class ItemCore:ScriptableObject
@@ -13,6 +15,7 @@ public class ItemCore:ScriptableObject
     public string itemName => _itemName;
     public string itemDes => _itemDesc;
     public int itemID => _itemID;
+    public int cost => _cost;
     public Sprite itemSprite => _itemSprite;
     public ItemType type => _type;
     public virtual void UseItem()
@@ -22,7 +25,15 @@ public class ItemCore:ScriptableObject
     public virtual void DropItem()
     {
     }
-    
+
+    public void ChangeName(string NewName)
+    {
+        _itemName = NewName;
+    }
+    public void SetCost(int v)
+    {
+        _cost = v;
+    }
     internal void ChangeItemType(ItemType newType)
     {
         _type = newType;

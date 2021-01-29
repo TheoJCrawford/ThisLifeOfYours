@@ -169,15 +169,14 @@ namespace TLY.Controls
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if(_state == ControlState.Moving)
+                GameObject.Find("Deus").GetComponent<UI.UIHandler>().CharacterScreenOn();
+                if (_state == ControlState.Moving)
                 {
                     _state = ControlState.Menu;
-                    GameObject.Find("Deus").GetComponent<UI.UIHandler>().CharacterScreenOn();
                 }
                 else
                 {
                     _state = ControlState.Moving;
-                    GameObject.Find("Deus").GetComponent<UI.UIHandler>().CharacterScreenOn();
                 }
             }
         }
