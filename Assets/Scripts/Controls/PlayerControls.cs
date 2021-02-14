@@ -2,6 +2,7 @@
 using TLY.Movement;
 using TLY.Animation;
 using System.Collections;
+using System;
 
 namespace TLY.Controls
 {
@@ -43,6 +44,7 @@ namespace TLY.Controls
                     CharPageInput();
                     break;
                 case ControlState.Menu:
+                    MovementUll();
                     PauseMenuInput();
                     CharPageInput();
                     break;
@@ -58,6 +60,13 @@ namespace TLY.Controls
                 InteractInput();
             }
         }
+
+        private void MovementUll()
+        {
+            _mover.TakeInput(0, 0);
+            _anima.EndMovement();
+        }
+
         private void SprintCheck()
         {
             if (Input.GetKey(KeyCode.LeftShift))

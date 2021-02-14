@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0abdebce3fa1fb4b8b4a7c4c909899b, type: 3}
   m_Name: IronIngot
   m_EditorClassIdentifier: 
-  _itemName: Iron
+  _itemName: Iron Ingot
   _itemDesc: 
   _itemID: 1
   _cost: 20
