@@ -1,0 +1,26 @@
+<NewDataSet>
+  <Table1>
+    <ID>0</ID>
+    <Item_x0020_Name> Yew Log</Item_x0020_Name>
+    <Cost>5</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Yew Log.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A log from a yew tree</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>1</ID>
+    <Item_x0020_Name> Cedar Log</Item_x0020_Name>
+    <Cost>10</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Ceddar Log.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>Log taken from a cedar tree</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>2</ID>
+    <Item_x0020_Name> Spurce Log</Item_x0020_Name>
+    <Cost>7</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/spruce Log.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A log taken from a spruce tree.</Item_x0020_Desription>
+  </Table1>
+</NewDataSet>
