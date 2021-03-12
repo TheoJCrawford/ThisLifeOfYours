@@ -107,13 +107,14 @@ public class ItemDatabase
 
     public  void EditItem(int index, string Name, int ItemCost, string ItemDescript, string SpriteString, ItemType IType)
     {
-        DataRow row = itemDb.Rows.Find(index);
+
+
+        itemDb.Rows.Find(index)["Cost"] = Name;
+        itemDb.Rows.Find(index)["Cost"] = ItemCost;
+        itemDb.Rows.Find(index)["Sprite Address"] = SpriteString;
+        itemDb.Rows.Find(index)["Item type"] = IType;
+        itemDb.Rows.Find(index)["Item Description"] = ItemDescript;
         
-        row["Cost"] = Name;
-        row["Cost"] = ItemCost;        
-         row["Sprite Address"] = SpriteString;
-        row["Item type"] = IType;
-        row["Item Description"] = ItemDescript;
     }
 }
 public enum ItemType

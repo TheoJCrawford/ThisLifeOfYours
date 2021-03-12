@@ -18,6 +18,7 @@ namespace TLY.Core
         public int magic { get; set; }
         public int speed { get; set; }
         public List<SkillBlock> Skills {get; internal set; }
+        public Inventory inventory { get; internal set; }
 
         
         public SaveData save;
@@ -34,6 +35,7 @@ namespace TLY.Core
                 Health = new Vital("Health");
                 Stamina = new Vital("Stamina");
                 Skills = new List<SkillBlock>();
+                inventory = new Inventory();
                 attack = 0;
                 defence = 0;
                 magic = 0;

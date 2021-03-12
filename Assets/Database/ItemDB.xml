@@ -23,4 +23,28 @@
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A log taken from a spruce tree.</Item_x0020_Desription>
   </Table1>
+  <Table1>
+    <ID>3</ID>
+    <Item_x0020_Name> Ash Log</Item_x0020_Name>
+    <Cost>20</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Ash Log.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A log of ash wood.</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>4</ID>
+    <Item_x0020_Name> Elm Log</Item_x0020_Name>
+    <Cost>67</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Elm Log.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A log of elm wood.</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>5</ID>
+    <Item_x0020_Name>Mahogany Log</Item_x0020_Name>
+    <Cost>500</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Mahogany Log.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A log of mahogany wood.</Item_x0020_Desription>
+  </Table1>
 </NewDataSet>
