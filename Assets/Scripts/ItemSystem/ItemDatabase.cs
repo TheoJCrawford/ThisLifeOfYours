@@ -8,7 +8,7 @@ public class ItemDatabase
 {
     DataSet itemDeus;
     DataTable itemDb;
-    //DataTable weaponDb;
+    DataTable weaponDb;
 
 
     public int DbSize => itemDb.Rows.Count;
@@ -24,7 +24,6 @@ public class ItemDatabase
     {
         var primaryKeys = new DataColumn[1];
         itemDeus = new DataSet();
-       // weaponDb = new DataTable();
         itemDb = new DataTable();
 
 # region Item ID column
@@ -72,8 +71,37 @@ public class ItemDatabase
         itemDb.PrimaryKey = primaryKeys;
         itemDeus.Tables.Add(itemDb);
     }
+    private void CreateWeaponDataTable()
+    {
+        weaponDb = new DataTable();
+        DataColumn dataColumn = new DataColumn();
+        dataColumn.ColumnName = "Weapon ID";
+        dataColumn.DataType = typeof(int);
+        dataColumn.Unique = true;
+        weaponDb.Columns.Add(dataColumn);
 
+        DataColumn dataColumn1 = new DataColumn();
+        dataColumn1.ColumnName = "Weapon Type";
+        dataColumn1.DataType = typeof(WeaponType);
+        weaponDb.Columns.Add(dataColumn1);
 
+        DataColumn dataColumn2 = new DataColumn();
+        dataColumn2.ColumnName = "Damage Value";
+        dataColumn2.DataType = typeof(int);
+        weaponDb.Columns.Add(dataColumn2);
+
+        DataColumn dataColumn3 = new DataColumn();
+        dataColumn3.ColumnName = "Attack Speed";
+        dataColumn3.DataType = typeof(float);
+        weaponDb.Columns.Add(dataColumn3);
+    }
+    public static ItemDatabase InstantiateItemDatabase()
+    {
+        ItemDatabase self = new ItemDatabase();
+        self.CreateDatatable();
+        self.PopulateDatatable();
+        return self;
+    }
     public void PopulateDatatable()
     {
         if (File.Exists("Assets/Database/ItemDB.xml"))
@@ -102,7 +130,6 @@ public class ItemDatabase
         dataRow["Item type"] = ItemType;
         dataRow["Item Desription"] = ItemDescript;
         itemDb.Rows.Add(dataRow);
-
     }
 
     public  void EditItem(int index, string Name, int ItemCost, string ItemDescript, string SpriteString, ItemType IType)
@@ -123,4 +150,10 @@ public enum ItemType
     Consumeable,
     Weapon,
     Armor
+};
+public enum WeaponType
+{
+    Melee,
+    Ranged,
+    Hybrid
 };

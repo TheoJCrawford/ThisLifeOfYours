@@ -27,10 +27,8 @@ public class DatatableEditor : EditorWindow
     }
     private void OnEnable()
     {
-        
-        dB = new ItemDatabase();
-        dB.CreateDatatable();
-        dB.PopulateDatatable();
+
+        dB = ItemDatabase.InstantiateItemDatabase();
         RefreshItem();
     }
     

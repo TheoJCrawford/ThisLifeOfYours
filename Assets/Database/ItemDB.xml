@@ -47,4 +47,12 @@
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A log of mahogany wood.</Item_x0020_Desription>
   </Table1>
+  <Table1>
+    <ID>6</ID>
+    <Item_x0020_Name> Yew lumber</Item_x0020_Name>
+    <Cost>13</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/yew plank.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>Lumber made from yew logs</Item_x0020_Desription>
+  </Table1>
 </NewDataSet>
