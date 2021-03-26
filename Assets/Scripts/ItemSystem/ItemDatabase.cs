@@ -136,11 +136,11 @@ public class ItemDatabase
     {
 
 
-        itemDb.Rows.Find(index)["Cost"] = Name;
+        itemDb.Rows.Find(index)["Item Name"] = Name;
         itemDb.Rows.Find(index)["Cost"] = ItemCost;
         itemDb.Rows.Find(index)["Sprite Address"] = SpriteString;
         itemDb.Rows.Find(index)["Item type"] = IType;
-        itemDb.Rows.Find(index)["Item Description"] = ItemDescript;
+        itemDb.Rows.Find(index)["Item Desription"] = ItemDescript;
         
     }
 }

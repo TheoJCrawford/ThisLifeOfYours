@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TLY.ItemSystem
 {
-    public class Recipe:ScriptableObject
+    public struct Recipe
     {
         private Dictionary<int, int> _ingredients;
         private int _output;
