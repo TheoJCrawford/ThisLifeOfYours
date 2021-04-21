@@ -4,7 +4,7 @@ using UnityEditor;
 
 
 
-public class DatatableEditor : EditorWindow
+public class ItemDatatableEditor : EditorWindow
 {
     ItemDatabase dB;
 
@@ -22,7 +22,7 @@ public class DatatableEditor : EditorWindow
     [MenuItem("TLOY/Item DB Editor")]
     public static void ShowWindow()
     {
-        EditorWindow window = EditorWindow.GetWindow(typeof(DatatableEditor));
+        EditorWindow window = GetWindow(typeof(ItemDatatableEditor));
         window.minSize = new Vector2(550, 500);
     }
     private void OnEnable()
@@ -60,7 +60,7 @@ public class DatatableEditor : EditorWindow
                     itemCost = dB.ReturnItemCost(i);
                     itemDescrip = dB.ReturnItemDecsript(i);
                     itemIcon = dB.ReturnItemSpPath(i);
-                    content.image = dB.ReturnItemSprite(i);
+                    content.image = (Texture)AssetDatabase.LoadAssetAtPath(dB.ReturnItemSpPath(i), typeof(Texture));
                     iType = dB.ReturnItemType(i);
                 }
             }
