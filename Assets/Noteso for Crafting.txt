@@ -1,0 +1,17 @@
+Crafting
+
+Variables
+	Skill
+	Recipe difficulty
+	Stamina drain
+
+
+Proccess for crafting
+1) Check if the player can craft it (will be shown already)
+2) Break movement
+3) Determine the string length (Difficulty - skillLevel >= 2? => return Difficulty - skillLevel:2;)
+4) Begin the input timer/Begin taking input
+	a) There will be half a second between the taking of the same input
+	b) if there is one false input, allow a reset. Fail again, move to 5
+5) If the input string matches && there is time remaining, the item is crafted. Else, fail state
+	5a) on fail, there is a very tiny chance (if skill > Difficulty)

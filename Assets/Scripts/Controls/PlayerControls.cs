@@ -17,6 +17,7 @@ namespace TLY.Controls
             Converse,
             Store,
             Menu,
+            Crafting
         };
         private ControlState _state;
         private PlayerMovement _mover;
@@ -47,6 +48,8 @@ namespace TLY.Controls
                     MovementUll();
                     PauseMenuInput();
                     CharPageInput();
+                    break;
+                case ControlState.Crafting:
                     break;
                 case ControlState.Converse:
                     TakeTalkInput();

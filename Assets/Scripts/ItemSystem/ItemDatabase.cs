@@ -20,15 +20,25 @@ public class ItemDatabase
     public string ReturnItemDecsript(int index) => itemDb.Rows.Find(index)["Item Desription"].ToString();
     public ItemType ReturnItemType(int index) => (ItemType)itemDb.Rows.Find(index)["Item type"];
     #endregion
-    public void CreateDatatable()
+    
+    
+    public static ItemDatabase InstantiateItemDatabase()
+    {
+        ItemDatabase self = new ItemDatabase();
+        self.CreateDatatable();
+        self.CreateWeaponDataTable();
+        self.PopulateDatatable();
+        return self;
+    }
+    private void CreateDatatable()
     {
         var primaryKeys = new DataColumn[1];
         itemDeus = new DataSet();
         itemDb = new DataTable();
 
-# region Item ID column
+        #region Item ID column
         DataColumn dataColumn = new DataColumn();
-        dataColumn.ColumnName = "ID";        
+        dataColumn.ColumnName = "ID";
         dataColumn.DataType = typeof(int);
         dataColumn.AutoIncrement = true;
         dataColumn.AutoIncrementSeed = 0;
@@ -37,32 +47,32 @@ public class ItemDatabase
         primaryKeys[0] = dataColumn;
         itemDb.Columns.Add(dataColumn);
         #endregion
-# region Item Name
+        #region Item Name
         DataColumn dataColumn1 = new DataColumn();
         dataColumn1.ColumnName = "Item Name";
         dataColumn1.DataType = typeof(string);
         itemDb.Columns.Add(dataColumn1);
         #endregion
-#region Item Cost
+        #region Item Cost
         DataColumn dataColumn2 = new DataColumn();
         dataColumn2.ColumnName = "Cost";
         dataColumn2.DataType = typeof(int);
         itemDb.Columns.Add(dataColumn2);
         #endregion
-#region Item Sprite
+        #region Item Sprite
         DataColumn dataColumn3 = new DataColumn();
         dataColumn3.ColumnName = "Sprite Address";
         dataColumn3.Unique = true;
         dataColumn3.DataType = typeof(string);
         itemDb.Columns.Add(dataColumn3);
         #endregion
-#region Item Type
+        #region Item Type
         DataColumn dataColumn4 = new DataColumn();
         dataColumn4.ColumnName = "Item type";
         dataColumn4.DataType = typeof(ItemType);
         itemDb.Columns.Add(dataColumn4);
         #endregion
-# region Item Descriptor
+        #region Item Descriptor
         DataColumn dataColumn5 = new DataColumn();
         dataColumn5.ColumnName = "Item Desription";
         dataColumn5.DataType = typeof(string);
@@ -95,14 +105,7 @@ public class ItemDatabase
         dataColumn3.DataType = typeof(float);
         weaponDb.Columns.Add(dataColumn3);
     }
-    public static ItemDatabase InstantiateItemDatabase()
-    {
-        ItemDatabase self = new ItemDatabase();
-        self.CreateDatatable();
-        self.PopulateDatatable();
-        return self;
-    }
-    public void PopulateDatatable()
+    private void PopulateDatatable()
     {
         if (File.Exists("Assets/Database/ItemDB.xml"))
         {
