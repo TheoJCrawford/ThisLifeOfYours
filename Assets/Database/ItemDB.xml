@@ -103,4 +103,68 @@
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A metal mined from the earth.</Item_x0020_Desription>
   </Table1>
+  <Table1>
+    <ID>13</ID>
+    <Item_x0020_Name> Zinc ore</Item_x0020_Name>
+    <Cost>6</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Zinc ore.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A piece of zinc, mined from the earth</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>14</ID>
+    <Item_x0020_Name> Iron ore</Item_x0020_Name>
+    <Cost>15</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/IronOre.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A piece of iron mined from the earth.</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>15</ID>
+    <Item_x0020_Name>Silver ore</Item_x0020_Name>
+    <Cost>90</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/SilverOre.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>Raw silver mined from the earth.</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>16</ID>
+    <Item_x0020_Name> Gold ore</Item_x0020_Name>
+    <Cost>150</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/goldOre.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>Gold mined from the ground.</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>17</ID>
+    <Item_x0020_Name>Mytharial ore</Item_x0020_Name>
+    <Cost>300</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/MythralOre.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A stange metal that seems incredibly strong while light as a feather.</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>18</ID>
+    <Item_x0020_Name> Oricalcum ore</Item_x0020_Name>
+    <Cost>400</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/OrichalcumOre.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A strange metal found from deep in the earth.</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>19</ID>
+    <Item_x0020_Name> Titanium ore</Item_x0020_Name>
+    <Cost>170</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Titianium Ore.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>An ore found deep within the earth. Surprisingly durable.</Item_x0020_Desription>
+  </Table1>
+  <Table1>
+    <ID>20</ID>
+    <Item_x0020_Name> Copper Ingot</Item_x0020_Name>
+    <Cost>25</Cost>
+    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Copper Ingot.png</Sprite_x0020_Address>
+    <Item_x0020_type>0</Item_x0020_type>
+    <Item_x0020_Desription>A bar of copper.</Item_x0020_Desription>
+  </Table1>
 </NewDataSet>
