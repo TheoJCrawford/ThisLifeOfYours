@@ -412,6 +412,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguelines:
   - What a wonderful line of text
+  - What a wonderful line of text
+  - What a wonderful line of text
+  - What a wonderful line of text
 --- !u!114 &211478673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3557,6 +3560,7 @@ GameObject:
   - component: {fileID: 1915089463}
   - component: {fileID: 1915089462}
   - component: {fileID: 1915089461}
+  - component: {fileID: 1915089460}
   m_Layer: 0
   m_Name: Test Furnace_0
   m_TagString: Untagged
@@ -3564,6 +3568,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1915089460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915089459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d03f0b10ddd108419a49cdfdc384168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipes:
+  - _output: 12
+    _numOut: 1
+    _recDif: 1
+    _skillReq: Smithing
+    _skilRlLvl: 1
 --- !u!61 &1915089461
 BoxCollider2D:
   m_ObjectHideFlags: 0

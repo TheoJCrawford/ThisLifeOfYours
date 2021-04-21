@@ -7,9 +7,7 @@ public class DbHandler : MonoBehaviour
     ItemDatabase itemDb;
     void Start()
     {
-        itemDb = new ItemDatabase();
-        itemDb.CreateDatatable();
-        itemDb.PopulateDatatable();
+        itemDb = ItemDatabase.InstantiateItemDatabase();
     }
 
     public Texture RetrieveSprite(int sprite)

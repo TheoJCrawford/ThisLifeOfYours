@@ -2,7 +2,7 @@
 using UnityEngine;
 namespace TLY.TownActivities.NPC
 {
-    public class BlacksmithTeacher:NPCCore,SkillTrainer
+    public class BlacksmithTeacher:NPCCore
     {
         private string _inquiryLine = "Can I help you with something?";
 
@@ -28,10 +28,6 @@ namespace TLY.TownActivities.NPC
                 GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguagePerson(this);
                 hasMet = true;
             }
-        }
-        public SkillBlock TrainSkill()
-        {
-            return new SmithingSkillBlock();
         }
     }
 }
