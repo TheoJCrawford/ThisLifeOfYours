@@ -6,11 +6,15 @@ namespace TLY.SkillSystem
     public class SkillDatabaseEditor:EditorWindow
     {
         public const float ICON_BUTTON_SIZE = 50f;
+        
         private SkillBlockDb _skillDB;
+        private int _indexer = -1;
+
 
         private string _skillName;
         private string _descript;
         private string _spriteAdress;
+        private SkillType _skillType;
         private GUIContent _buttonIcon;
 
         [MenuItem("TLOY / Skill DB Editor")]
@@ -18,12 +22,12 @@ namespace TLY.SkillSystem
         {
             EditorWindow window = GetWindow(typeof(SkillDatabaseEditor));
             window.minSize = new Vector2(600, 500);
-            window.maxSize = new Vector2(600, 500);
+            window.name = "Skill Block Editor";
         }
         private void OnEnable()
         {
             _skillDB = SkillBlockDb.InstantiateSkillBlock();
-            _skillName = " ";
+            ResetSkill();
             _buttonIcon = new GUIContent();
         }
         private void OnGUI()
@@ -33,24 +37,36 @@ namespace TLY.SkillSystem
         }
         private void SideBar()
         {
-            GUILayout.BeginArea(new Rect(1, 5, 95, 500));
-            GUILayout.Button("Reset Skill");
+            GUILayout.BeginArea(new Rect(0, 0, 95, 500));
+            if(GUILayout.Button("Reset Skill"))
+            {
+                ResetSkill();
+            }
             if(GUILayout.Button("Save Database"))
             {
                 _skillDB.SaveSkillBlock();
+                ResetSkill();
             }
             if(_skillDB.GetCount > 0)
             {
                 for (int i = 0; i < _skillDB.GetCount; i++)
                 {
-                    GUILayout.Button(_skillDB.SkillName(i));
+                    if (GUILayout.Button(_skillDB.SkillName(i)))
+                    {
+                        _indexer = i;
+                        _skillName = _skillDB.SkillName(_indexer);
+                        _descript = _skillDB.SkillDescription(_indexer);
+                        _buttonIcon.image = (Texture)AssetDatabase.LoadAssetAtPath(_skillDB.SkillIconPath(_indexer), typeof(Texture));
+                        _spriteAdress = AssetDatabase.GetAssetPath(_buttonIcon.image);
+
+                    }
                 }
             }
             GUILayout.EndArea();
         }
         private void MainSection()
         {
-            GUILayout.BeginArea(new Rect(105, 5, 490, 500));
+            GUILayout.BeginArea(new Rect(100, 10, 490, 500));
             GUILayout.BeginHorizontal();
             GUILayout.Label("Name: ", GUILayout.ExpandWidth(false));
             _skillName = GUILayout.TextField(_skillName);
@@ -62,12 +78,38 @@ namespace TLY.SkillSystem
             GUILayout.Label("Sprite Adress: " + _spriteAdress);
             if(GUILayout.Button(_buttonIcon, GUILayout.MaxWidth(ICON_BUTTON_SIZE), GUILayout.MaxHeight(ICON_BUTTON_SIZE)))
             {
-                //EditorGUIUtility.ShowObjectPicker<Sprite>()
+                EditorGUIUtility.ShowObjectPicker<Texture>(_buttonIcon.image, false, "", 0);
             }
-            if(GUILayout.Button("Save Item"))
+            if(Event.current.commandName == "ObjectSelectorUpdated")
             {
-                _skillDB.AddSkillBlock(_skillName, _descript, _spriteAdress);
+                _buttonIcon.image = (Texture)EditorGUIUtility.GetObjectPickerObject();
+                _spriteAdress = AssetDatabase.GetAssetPath(_buttonIcon.image);
+            }
+            _skillType = (SkillType)EditorGUILayout.EnumPopup(_skillType);
+            if (GUILayout.Button("Save Item"))
+            {
+                if(_indexer == -1)
+                {
+                    _skillDB.AddSkillBlock(_skillName, _descript, _spriteAdress, _skillType);
+                    ResetSkill();
+                }
+                else
+                {
+                    _skillDB.EditSkillBlock(_indexer, _skillName, _descript, _spriteAdress, _skillType);
+                    ResetSkill();
+                }
+                
             }
         }
+
+        private void ResetSkill()
+        {
+            _indexer = -1;
+            _skillName = " ";
+            _descript = " ";
+            _spriteAdress = " ";
+            _buttonIcon = new GUIContent();
+        }
+
     }
 }

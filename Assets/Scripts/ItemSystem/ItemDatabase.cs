@@ -104,6 +104,8 @@ public class ItemDatabase
         dataColumn3.ColumnName = "Attack Speed";
         dataColumn3.DataType = typeof(float);
         weaponDb.Columns.Add(dataColumn3);
+
+        itemDeus.Tables.Add(weaponDb);
     }
     private void PopulateDatatable()
     {
@@ -121,6 +123,10 @@ public class ItemDatabase
         using (StreamWriter writer = new StreamWriter("Assets/Database/ItemDB.xml"))
         {
             itemDb.WriteXml(writer);
+        }
+        using(StreamWriter writer1 = new StreamWriter("Assets/Database/WeaponDB.xml"))
+        {
+            weaponDb.WriteXml(writer1);
         }
     }
 

@@ -15,6 +15,8 @@ namespace TLY.TownActivities.NPC
         [SerializeField] public Gender gender { get; internal set; }
         [SerializeField] public int relation { get; internal set; }
         [SerializeField] public int isSingle { get; set; }
+        [SerializeField] public NPCType type { get; set; }
+        [SerializeField] public int? skillType { get; set; }
         [SerializeField] public string IntroductionLine { get; set; }
         [SerializeField] public List<string> dialoguelines;
         public bool hasMet { get; internal set; }
@@ -102,4 +104,10 @@ namespace TLY.TownActivities.NPC
         }
         #endregion
     }
+    public enum NPCType
+    {
+        Citizen,
+        Shop_keeper,
+        Trainer
+    };
 }

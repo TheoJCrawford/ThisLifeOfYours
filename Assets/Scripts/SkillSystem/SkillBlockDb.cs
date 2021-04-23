@@ -13,13 +13,15 @@ namespace TLY.SkillSystem
         #region Returns
         public string SkillName(int ID) => _skillBocks.Rows.Find(ID)["Name"].ToString();
         public string SkillDescription(int ID) => _skillBocks.Rows.Find(ID)["Description"].ToString();
+        public string SkillIconPath(int ID) => _skillBocks.Rows.Find(ID)["Sprite Adress"].ToString();
         public Texture SkillIcon(int ID) => Resources.Load<Texture>(_skillBocks.Rows.Find(ID)["Sprite Adress"].ToString());
+        public SkillType GetSkillType(int ID) => (SkillType)_skillBocks.Rows.Find(ID)["Skill Type"];
         #endregion
         private void CreateSkillBlock()
         {
             _skillBocks = new DataTable();
             var primaryKeys = new DataColumn[1];
-
+            _skillBocks.TableName = "Skill Blocks-EN";
 
             #region ID
             DataColumn dataColumn = new DataColumn();
@@ -43,6 +45,7 @@ namespace TLY.SkillSystem
             DataColumn dataColumn2 = new DataColumn();
             dataColumn2.ColumnName = "Description";
             dataColumn2.DataType = typeof(string);
+            dataColumn1.Unique = true;
             _skillBocks.Columns.Add(dataColumn2);
             #endregion
             #region Sprite
@@ -55,7 +58,8 @@ namespace TLY.SkillSystem
             #region Type of Skill
             DataColumn dataColumn4 = new DataColumn();
             dataColumn4.ColumnName = "Skill Type";
-            
+            dataColumn4.DataType = typeof(SkillType);
+            _skillBocks.Columns.Add(dataColumn4);
             #endregion
             #region
             //Additional things
@@ -65,9 +69,9 @@ namespace TLY.SkillSystem
         }
         private void PopulateSkillBlock()
         {
-            if (File.Exists("Assets / Database / SkillsDB.xml"))
+            if (File.Exists("Assets/Database/SkillsDB.xml"))
             {
-                using (StreamReader reader = new StreamReader("Assets / Database / SkillsDB.xml"))
+                using (StreamReader reader = new StreamReader("Assets/Database/SkillsDB.xml"))
                 {
                     _skillBocks.ReadXml(reader);
                 }
@@ -75,7 +79,7 @@ namespace TLY.SkillSystem
         }
         public void SaveSkillBlock()
         {
-            using(StreamWriter writer = new StreamWriter("Assets / Database / SkillsDB.xml"))
+            using(StreamWriter writer = new StreamWriter("Assets/Database/SkillsDB.xml"))
             {
                 _skillBocks.WriteXml(writer);
             }
@@ -87,7 +91,7 @@ namespace TLY.SkillSystem
             self.PopulateSkillBlock();
             return self;
         }
-        public void AddSkillBlock(string Name, string Descript, string SpriteID)
+        public void AddSkillBlock(string Name, string Descript, string SpriteID, SkillType SkillType)
         {
             if (SpriteID == " " || Name == " "|| Descript == " ")
             {
@@ -98,9 +102,17 @@ namespace TLY.SkillSystem
             row["Name"] = Name;
             row["Description"] = Descript;
             row["Sprite Adress"] = SpriteID;
+            row["Skill Type"] = SkillType;
             _skillBocks.Rows.Add(row);
         }
-        
+        public void EditSkillBlock(int Id, string Name, string Descript, string SpriteID, SkillType SkillType)
+        {
+            _skillBocks.Rows.Find(Id)["Name"] = Name;
+            _skillBocks.Rows.Find(Id)["Description"] = Descript;
+            _skillBocks.Rows.Find(Id)["Sprite Adress"] = SpriteID;
+            _skillBocks.Rows.Find(Id)["Skill Type"] = SkillType;
+            
+        }
     }
     public enum SkillType
     {

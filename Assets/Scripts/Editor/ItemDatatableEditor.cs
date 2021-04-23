@@ -23,7 +23,8 @@ public class ItemDatatableEditor : EditorWindow
     public static void ShowWindow()
     {
         EditorWindow window = GetWindow(typeof(ItemDatatableEditor));
-        window.minSize = new Vector2(550, 500);
+        window.minSize = new Vector2(600, 500);
+        window.name = "Item Editor";
     }
     private void OnEnable()
     {
