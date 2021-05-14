@@ -41,4 +41,25 @@
     <Sprite_x0020_Adress>Assets/Art/SkillIcons/Blacksmithing.png</Sprite_x0020_Adress>
     <Skill_x0020_Type>1</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
+  <Skill_x0020_Blocks-EN>
+    <ID>6</ID>
+    <Name>Leatherworking</Name>
+    <Description>The fine art of making leather itmes of clothing or accessories</Description>
+    <Sprite_x0020_Adress>Assets/Art/SkillIcons/Leatherworking.png</Sprite_x0020_Adress>
+    <Skill_x0020_Type>1</Skill_x0020_Type>
+  </Skill_x0020_Blocks-EN>
+  <Skill_x0020_Blocks-EN>
+    <ID>7</ID>
+    <Name> Tailoring</Name>
+    <Description>The art of spinning yarn and thread into cloth and other items.</Description>
+    <Sprite_x0020_Adress>Assets/Art/SkillIcons/TailoringSkillIcon.png</Sprite_x0020_Adress>
+    <Skill_x0020_Type>1</Skill_x0020_Type>
+  </Skill_x0020_Blocks-EN>
+  <Skill_x0020_Blocks-EN>
+    <ID>8</ID>
+    <Name> Alchemy</Name>
+    <Description>The fine art of turning mutagens and ingredients into potions, poisons and other itmes. </Description>
+    <Sprite_x0020_Adress>Assets/Art/SkillIcons/AlchemySkillIcon.png</Sprite_x0020_Adress>
+    <Skill_x0020_Type>1</Skill_x0020_Type>
+  </Skill_x0020_Blocks-EN>
 </DocumentElement>
