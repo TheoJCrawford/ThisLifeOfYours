@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TLY.Movement
 {
@@ -9,7 +10,8 @@ namespace TLY.Movement
         [SerializeField] public float moveSpeed = 2f;
         [SerializeField] public float runSpeed = 5f;
 
-        private Vector2 _moveDirection;
+        private static Vector2 _moveDirection;
+
         private Vector2 _lookPos;
         private Rigidbody2D _self;
         private bool _isSprinting;
@@ -38,15 +40,15 @@ namespace TLY.Movement
             
 
         }
+        
         private void EnactMovement()
         {
             _self.velocity = _moveDirection;   
         }
-        public void TakeInput(float Up, float Right)
+
+        public void TakeInput(Vector2 MoveVec)
         {
-            _moveDirection = Vector2.zero;
-            _moveDirection = new Vector2(Up, Right);
-            _lookPos = new Vector2(Up, Right);
+            _moveDirection = MoveVec;
         }
         private void AddModifiers()
         {

@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using TLY.Movement;
 using TLY.Animation;
-using System.Collections;
-using System;
+using UnityEngine.InputSystem;  
+
 
 namespace TLY.Controls
 {
-    [RequireComponent(typeof(PlayerMovement), typeof(PlayerAnimator))]
+    [RequireComponent(typeof(PlayerMovement), typeof(PlayerAnimator), typeof(PlayerInput))]
     
     public class PlayerControls : MonoBehaviour
     {
+        [SerializeField] private PlayerInput _playerInput;
         private enum ControlState
         {
             Moving,
@@ -20,196 +21,49 @@ namespace TLY.Controls
             Crafting
         };
         private ControlState _state;
+
+        private Vector2 _moveDirect;
         private PlayerMovement _mover;
         private PlayerAnimator _anima;
-        
+
+        private InputAction _moveAction;
+        private InputAction _spirntAction;
 
         // Start is called before the first frame update
         void Start()
         {
             _mover = GetComponent<PlayerMovement>();
             _anima = GetComponent<PlayerAnimator>();
+            _playerInput = GetComponent<PlayerInput>();
+
+            _moveAction = _playerInput.actions.FindAction("Movement");
+            _spirntAction = _playerInput.actions.FindAction("Run");
+
             _state = ControlState.Moving;
-
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            switch (_state)
-            {
-                case ControlState.Moving:
-                    SprintCheck();
-                    TakeMoveInput();
-                    CombatInput();
-                    CharPageInput();
-                    break;
-                case ControlState.Menu:
-                    MovementUll();
-                    PauseMenuInput();
-                    CharPageInput();
-                    break;
-                case ControlState.Crafting:
-                    break;
-                case ControlState.Converse:
-                    TakeTalkInput();
-                    break;
-                default:
-                    Debug.LogError("Oi, you dumb shit! We don't have anything perscribed to this ");
-                    break;
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                InteractInput();
-            }
+            _moveAction.performed += TakeMoveInput;
+            _spirntAction.performed += TakeSprintInput;
+            _moveAction.canceled += TakeMoveInput;
+            _spirntAction.canceled += TakeSprintInput;
         }
 
-        private void MovementUll()
+        private void TakeMoveInput(InputAction.CallbackContext context)
         {
-            _mover.TakeInput(0, 0);
-            _anima.EndMovement();
+            _mover.TakeInput(context.ReadValue<Vector2>());
         }
-
-        private void SprintCheck()
+        private void TakeSprintInput(InputAction.CallbackContext context)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
+            if(context.ReadValue<float>() > 0){
                 _mover.sprintState(true);
-                _anima.SetSpritState(true);
             }
             else
             {
                 _mover.sprintState(false);
-                _anima.SetSpritState(false);
-            }
-        }
-        private void TakeMoveInput()
-        {
-            _mover.TakeInput(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            if(Input.GetAxis("Vertical") < 0)
-            {
-                _anima.BeginMovement();
-                _anima.SetDirection(0);
-            }
-            else if(Input.GetAxis("Vertical") > 0)
-            {
-                _anima.BeginMovement();
-                _anima.SetDirection(2);
-            }
-            else if(Input.GetAxis("Horizontal") < 0)
-            {
-                _anima.BeginMovement();
-                _anima.SetDirection(3);
-            }
-            else if(Input.GetAxis("Horizontal") > 0)
-            {
-                _anima.BeginMovement();
-                _anima.SetDirection(1);
-            }
-            else
-            {
-                _anima.EndMovement();
-            }
-        }
-        private void TakeTalkInput()
-        {
-            _anima.EndMovement();
-        }
-        private void InteractInput()
-        {
-            int _faceMe;
-            switch (_state)
-            {
-                case ControlState.Moving:
-                        RaycastHit2D ray;
-                        switch (_anima.DirectionCheck)
-                        {
-                            case 1:
-                                ray = Physics2D.Raycast(transform.position, Vector2.right, 1f);
-                                _faceMe = 3;
-                            break;
-                            case 2:
-                                ray = Physics2D.Raycast(transform.position, Vector2.up, 1f);
-                                _faceMe = 0;
-                                break;
-                            case 3:
-                                ray = Physics2D.Raycast(transform.position, Vector2.left, 1f);
-                                _faceMe = 1;
-                            break;
-                            default:
-                                ray = Physics2D.Raycast(transform.position, Vector2.down, 1f);
-                                _faceMe = 2;
-                            break;
-                        }
-                        if (ray != false)
-                        {
-                            var target = ray.collider;
-                            if (target.GetComponent<TownActivities.NPC.StoreFront>())
-                            {
-
-                            }
-                            else if (target.GetComponent<TownActivities.NPC.NPCCore>())
-                            {
-                                
-                                target.GetComponent<TownActivities.NPC.NPCCore>().Speak(_faceMe);
-                                _state = ControlState.Converse;
-                            }
-                        }
-                    break;
-                    case ControlState.Converse:
-                        if (Input.GetKeyDown(KeyCode.Escape))
-                        {
-                            GameObject.Find("Deus").GetComponent<UI.UIHandler>().ExitDialogue();
-                            _state = ControlState.Moving;
-                        }
-                        
-                        break;
-                default:
-                    Debug.LogError("Oi, you dumb shit! We don't have anything perscribed to this ");
-                    break;
             }
             
-        }
-        private void CombatInput()
-        {
-            if (Input.GetAxis("Fire1") > 0)
-            {
-                //Combat.Attack
-            }
-        }
-        private void CharPageInput()
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                GameObject.Find("Deus").GetComponent<UI.UIHandler>().CharacterScreenOn();
-                if (_state == ControlState.Moving)
-                {
-                    _state = ControlState.Menu;
-                }
-                else
-                {
-                    _state = ControlState.Moving;
-                }
-            }
-        }
-        private void PauseMenuInput()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if(_state != ControlState.Menu)
-                {
-                    _state = ControlState.Menu;
-                }
-                else
-                {
-                    _state = ControlState.Moving;
-                }
-            }
-        }
-
-        public void LeaveConversation()
-        {
-            _state = ControlState.Moving;
         }
     }
 }
