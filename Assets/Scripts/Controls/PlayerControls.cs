@@ -53,6 +53,7 @@ namespace TLY.Controls
         private void TakeMoveInput(InputAction.CallbackContext context)
         {
             _mover.TakeInput(context.ReadValue<Vector2>());
+            _anima.SetDirection(context.ReadValue<Vector2>());
         }
         private void TakeSprintInput(InputAction.CallbackContext context)
         {

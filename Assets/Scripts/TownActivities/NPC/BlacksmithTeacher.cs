@@ -7,7 +7,7 @@ namespace TLY.TownActivities.NPC
         private string _inquiryLine = "Can I help you with something?";
 
         public string inquiryLine { get => _inquiryLine; }
-        public override void Speak(int direct)
+        public override void Speak(Vector2 direct)
         {
             _anima.SetDirection(direct);
             if (hasMet)
@@ -15,17 +15,16 @@ namespace TLY.TownActivities.NPC
                 switch (curState)
                 {
                     case NPCState.work:
-                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguagePerson(this);
+                        ;
                         break;
                     case NPCState.talk:
                         
-                        GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguagePerson(this);
+                        
                         break;
                 }
             }
             else
             {
-                GameObject.Find("Deus").GetComponent<UI.UIHandler>().EnguagePerson(this);
                 hasMet = true;
             }
         }

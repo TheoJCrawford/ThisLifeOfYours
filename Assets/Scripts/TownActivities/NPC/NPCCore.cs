@@ -55,7 +55,7 @@ namespace TLY.TownActivities.NPC
             dialoguelines = new List<string>();
         }
 
-        public virtual void Speak(int direct)
+        public virtual void Speak(Vector2 direct)
         {
             lastState = curState;
             curState = NPCState.talk;

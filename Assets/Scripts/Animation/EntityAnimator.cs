@@ -16,9 +16,23 @@ namespace TLY.Animation
             _anima = GetComponent<Animator>();
         }
 
-        public void SetDirection(int direction)
+        public void SetDirection(Vector2 Direction)
         {
-            _anima.SetInteger("FacingDirection", direction);
+            switch (Direction)
+            {
+                case Vector2 v when v.Equals(Vector2.up):
+                    _anima.SetInteger("FacingDirection", 2);
+                    break;
+                case Vector2 v when v.Equals(Vector2.down):
+                    _anima.SetInteger("FacingDirection", 0);
+                    break;
+                case Vector2 v when v.Equals(Vector2.right):
+                    _anima.SetInteger("FacingDirection", 1);
+                    break;
+                case Vector2 v when v.Equals(Vector2.left):
+                    _anima.SetInteger("FacingDirection", 3);
+                    break;
+            }
         }
         public void BeginMovement()
         {

@@ -55,68 +55,9 @@ namespace TLY.UI
 
         private void Update()
         {
-            _healthBar.text = _player.Health.VitalName + _player.Health.ToString();
+            _healthBar.text = _player.Health.VitalName + _player.Health.ToString(); 
             _staminahBar.text = "Stamina: " + _player.Stamina.ToString();
         }
-        internal void EnguagePerson(NPCCore npc)
-        {
-            _targetName = npc;
-            if (_targetName.GetComponent<NPCCore>().hasMet &&_targetName.GetType().IsAssignableFrom(typeof(SkillTrainer)))
-            {
-                EnterDialogue();
-                SkillTrainer trainer = (SkillTrainer)_targetName;
-                ModifyText(trainer.inquiryLine);
-                _trainerButoon.gameObject.SetActive(true);
-            }
-            if (_targetName.GetComponent<NPCCore>().hasMet)
-            {
-                EnterDialogue();
-                ModifyText(_targetName.dialoguelines.Count.ToString());
-            }
-            else
-            {
-                EnterDialogue();
-                ModifyText(npc.IntroductionLine);
-                _trainerButoon.gameObject.SetActive(false);
-            }
-        }
-        public void LearnNewSkill()
-        {
-            SkillTrainer trainer = (SkillTrainer)_targetName;
-                Debug.Log("Found the Blacksmith trainer!!");
-                _player.AddNewSkillBlock(trainer.TrainSkill());
-
-            
-        }
-
-        public void EnterDialogue()
-        {
-            _lowerTab.SetActive(true);
-        }
-        public void ExitDialogue()
-        {
-            _targetName = null;
-            _player.GetComponent<PlayerControls>().LeaveConversation();
-            _lowerTab.SetActive(false);
-        }
-        public void CharacterScreenOn()
-        {
-            if (!_itemTab.activeSelf)
-            {
-                _itemTab.SetActive(true);
-            }
-            else
-            {
-                _itemTab.SetActive(false);
-            }
-        }
         
-        private void ModifyText(string NewText)
-        {
-            if (_txtDisplay.text != NewText)
-            {
-                _txtDisplay.text = NewText;
-            }
-        }
     }
 }
