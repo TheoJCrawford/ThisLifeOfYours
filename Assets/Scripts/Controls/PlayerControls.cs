@@ -10,7 +10,6 @@ namespace TLY.Controls
     
     public class PlayerControls : MonoBehaviour
     {
-        [SerializeField] private PlayerInput _playerInput;
         private enum ControlState
         {
             Moving,
@@ -25,6 +24,7 @@ namespace TLY.Controls
         private Vector2 _moveDirect;
         private PlayerMovement _mover;
         private PlayerAnimator _anima;
+        private PlayerInput _playerInput;
 
         private InputAction _moveAction;
         private InputAction _spirntAction;
@@ -48,8 +48,10 @@ namespace TLY.Controls
         {
             _moveAction.performed += TakeMoveInput;
             _spirntAction.performed += TakeSprintInput;
+            _interAction.performed += TakeInteractionInput;
             _moveAction.canceled += TakeMoveInput;
             _spirntAction.canceled += TakeSprintInput;
+            _interAction.canceled += TakeInteractionInput;
         }
 
         private void TakeMoveInput(InputAction.CallbackContext context)
@@ -80,9 +82,15 @@ namespace TLY.Controls
         }
         private void TakeInteractionInput(InputAction.CallbackContext context)
         {
-            if(context.ReadValue<float>() != 0)
+            RaycastHit hit;
+            if (context.ReadValue<float>() != 0)
             {
-
+                switch (_anima.DirectionCheck)
+                {
+                    default:
+                        Physics2D.Raycast(transform.position, Vector2.down);
+                        break;
+                }
             }
             else
             {
