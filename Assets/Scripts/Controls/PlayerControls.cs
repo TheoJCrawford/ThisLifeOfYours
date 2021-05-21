@@ -54,15 +54,25 @@ namespace TLY.Controls
         {
             _mover.TakeInput(context.ReadValue<Vector2>());
             _anima.SetDirection(context.ReadValue<Vector2>());
+            if(context.ReadValue<Vector2>() != Vector2.zero)
+            {
+                _anima.BeginMovement();
+            }
+            else
+            {
+                _anima.EndMovement();
+            }
         }
         private void TakeSprintInput(InputAction.CallbackContext context)
         {
             if(context.ReadValue<float>() > 0){
                 _mover.sprintState(true);
+                _anima.SetSpritState(true);
             }
             else
             {
                 _mover.sprintState(false);
+                _anima.SetSpritState(false);
             }
             
         }
