@@ -28,6 +28,7 @@ namespace TLY.Controls
 
         private InputAction _moveAction;
         private InputAction _spirntAction;
+        private InputAction _interAction;
 
         // Start is called before the first frame update
         void Start()
@@ -38,6 +39,7 @@ namespace TLY.Controls
 
             _moveAction = _playerInput.actions.FindAction("Movement");
             _spirntAction = _playerInput.actions.FindAction("Run");
+            _interAction = _playerInput.actions.FindAction("Interact");
 
             _state = ControlState.Moving;
         }
@@ -65,7 +67,7 @@ namespace TLY.Controls
         }
         private void TakeSprintInput(InputAction.CallbackContext context)
         {
-            if(context.ReadValue<float>() > 0){
+            if(context.ReadValue<float>() != 0){
                 _mover.sprintState(true);
                 _anima.SetSpritState(true);
             }
@@ -75,6 +77,17 @@ namespace TLY.Controls
                 _anima.SetSpritState(false);
             }
             
+        }
+        private void TakeInteractionInput(InputAction.CallbackContext context)
+        {
+            if(context.ReadValue<float>() != 0)
+            {
+
+            }
+            else
+            {
+                
+            }
         }
     }
 }
