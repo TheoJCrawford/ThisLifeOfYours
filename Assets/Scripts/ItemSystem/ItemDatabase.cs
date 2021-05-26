@@ -14,7 +14,8 @@ public class ItemDatabase
     public int DbSize => itemDb.Rows.Count;
     #region Core DB Returns
     public string ReturnItemName(int index) => itemDb.Rows.Find(index)["Item Name"].ToString();
-    public Texture ReturnItemSprite(int index) => Resources.Load<Texture>(itemDb.Rows.Find(index)["Sprite Address"].ToString());
+    public Texture ReturnItemTexture(int index) => Resources.Load<Texture>(itemDb.Rows.Find(index)["Sprite Address"].ToString());
+    public Sprite ReturnItemSprite(int index) => Resources.Load<Sprite>(itemDb.Rows.Find(index)["Sprite Address"].ToString());
     public string ReturnItemSpPath(int index) => itemDb.Rows.Find(index)["Sprite Address"].ToString();
     public int ReturnItemCost(int index) => Convert.ToInt32(itemDb.Rows[index]["Cost"]);
     public string ReturnItemDecsript(int index) => itemDb.Rows.Find(index)["Item Desription"].ToString();

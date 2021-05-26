@@ -107,6 +107,7 @@ public class ItemDatatableEditor : EditorWindow
         {
             content.image = (Texture)EditorGUIUtility.GetObjectPickerObject();
             itemIcon = AssetDatabase.GetAssetPath(content.image);
+            itemIcon = itemIcon.Replace("Assets/Resources/", "");
         }
 #endregion
         if (GUILayout.Button("Save Item") && itemName != " ")

@@ -5,12 +5,12 @@ using UnityEngine;
 public class DbHandler : MonoBehaviour
 {
     ItemDatabase itemDb;
-    void Start()
+    void Awake()
     {
         itemDb = ItemDatabase.InstantiateItemDatabase();
     }
 
-    public Texture RetrieveSprite(int sprite)
+    public Sprite RetrieveSprite(int sprite)
     {
         return itemDb.ReturnItemSprite(sprite);
     }

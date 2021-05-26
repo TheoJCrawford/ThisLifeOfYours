@@ -21,7 +21,6 @@ namespace TLY.Controls
         };
         private ControlState _state;
 
-        private Vector2 _moveDirect;
         private PlayerMovement _mover;
         private PlayerAnimator _anima;
         private PlayerInput _playerInput;
@@ -82,20 +81,31 @@ namespace TLY.Controls
         }
         private void TakeInteractionInput(InputAction.CallbackContext context)
         {
-            RaycastHit hit;
+            RaycastHit2D hits;
             if (context.ReadValue<float>() != 0)
             {
                 switch (_anima.DirectionCheck)
                 {
+                    case 1:
+                        hits = Physics2D.Raycast(transform.position, Vector2.left);
+                        break;
+                    case 2:
+                        hits = Physics2D.Raycast(transform.position, Vector2.up);
+                        break;
+                    case 3:
+                        hits = Physics2D.Raycast(transform.position, Vector2.right);
+                        break;
                     default:
-                        Physics2D.Raycast(transform.position, Vector2.down);
+                        hits = Physics2D.Raycast(transform.position, Vector2.down);
                         break;
                 }
+                if (hits.collider.GetComponent<TownActivities.NPC.NPCCore>())
+                {
+
+                }
+
             }
-            else
-            {
-                
-            }
+
         }
     }
 }
