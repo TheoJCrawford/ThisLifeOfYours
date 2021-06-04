@@ -61,7 +61,7 @@ public class ItemDatatableEditor : EditorWindow
                     itemCost = dB.ReturnItemCost(i);
                     itemDescrip = dB.ReturnItemDecsript(i);
                     itemIcon = dB.ReturnItemSpPath(i);
-                    content.image = (Texture)AssetDatabase.LoadAssetAtPath(dB.ReturnItemSpPath(i), typeof(Texture));
+                    content.image = dB.ReturnItemTexture(_indexer);
                     iType = dB.ReturnItemType(i);
                 }
             }
@@ -108,6 +108,7 @@ public class ItemDatatableEditor : EditorWindow
             content.image = (Texture)EditorGUIUtility.GetObjectPickerObject();
             itemIcon = AssetDatabase.GetAssetPath(content.image);
             itemIcon = itemIcon.Replace("Assets/Resources/", "");
+            itemIcon = itemIcon.Replace(".png", "");
         }
 #endregion
         if (GUILayout.Button("Save Item") && itemName != " ")
@@ -120,7 +121,6 @@ public class ItemDatatableEditor : EditorWindow
             else
             {
                 dB.EditItem(_indexer, itemName, itemCost, itemDescrip, itemIcon, iType);
-                RefreshItem();
             }
             
         }

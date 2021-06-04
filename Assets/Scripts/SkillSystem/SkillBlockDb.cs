@@ -14,7 +14,8 @@ namespace TLY.SkillSystem
         public string SkillName(int ID) => _skillBocks.Rows.Find(ID)["Name"].ToString();
         public string SkillDescription(int ID) => _skillBocks.Rows.Find(ID)["Description"].ToString();
         public string SkillIconPath(int ID) => _skillBocks.Rows.Find(ID)["Sprite Adress"].ToString();
-        public Texture SkillIcon(int ID) => Resources.Load<Texture>(_skillBocks.Rows.Find(ID)["Sprite Adress"].ToString());
+        public Texture SkillIconTexture(int ID) => Resources.Load<Texture>(_skillBocks.Rows.Find(ID)["Sprite Adress"].ToString());
+        public Sprite SkillIconSprite(int ID) => Resources.Load<Sprite>(_skillBocks.Rows.Find(ID)["Sprite Adress"].ToString());
         public SkillType GetSkillType(int ID) => (SkillType)_skillBocks.Rows.Find(ID)["Skill Type"];
         #endregion
         private void CreateSkillBlock()

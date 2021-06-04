@@ -2,7 +2,7 @@
 
 namespace TLY.ItemSystem
 {
-    [RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(SpriteRenderer), typeof(CircleCollider2D))]
     public class FloorItem:MonoBehaviour
     {
         [SerializeField] private int _itemValue;
@@ -18,7 +18,13 @@ namespace TLY.ItemSystem
         private void Start()
         {
             _spRender = GetComponent<SpriteRenderer>();
-            //Change the sprite render to match the texture
+            //Failsafe
+            if (_itemValue >= GameObject.Find("Deus").GetComponent<DbHandler>().GetDbSize)
+            {
+                Debug.LogError("Item is outside of restraights");
+                Debug.Break();
+            }
+            //Change the sprite render to match the item sprite
             _spRender.sprite = GameObject.Find("Deus").GetComponent<DbHandler>().RetrieveSprite(_itemValue);
         }
     }

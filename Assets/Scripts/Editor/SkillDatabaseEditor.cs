@@ -37,7 +37,7 @@ namespace TLY.SkillSystem
         }
         private void SideBar()
         {
-            GUILayout.BeginArea(new Rect(0, 0, 95, 500));
+            GUILayout.BeginArea(new Rect(0, 0, 145, 500));
             if(GUILayout.Button("Reset Skill"))
             {
                 ResetSkill();
@@ -56,9 +56,9 @@ namespace TLY.SkillSystem
                         _indexer = i;
                         _skillName = _skillDB.SkillName(_indexer);
                         _descript = _skillDB.SkillDescription(_indexer);
-                        _buttonIcon.image = (Texture)AssetDatabase.LoadAssetAtPath(_skillDB.SkillIconPath(_indexer), typeof(Texture));
+                        _buttonIcon.image = _skillDB.SkillIconTexture(_indexer);
                         _spriteAdress = AssetDatabase.GetAssetPath(_buttonIcon.image);
-
+                        _skillType = _skillDB.GetSkillType(_indexer);
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace TLY.SkillSystem
         }
         private void MainSection()
         {
-            GUILayout.BeginArea(new Rect(100, 10, 490, 500));
+            GUILayout.BeginArea(new Rect(150, 10, 440, 500));
             GUILayout.BeginHorizontal();
             GUILayout.Label("Name: ", GUILayout.ExpandWidth(false));
             _skillName = GUILayout.TextField(_skillName);
@@ -84,6 +84,8 @@ namespace TLY.SkillSystem
             {
                 _buttonIcon.image = (Texture)EditorGUIUtility.GetObjectPickerObject();
                 _spriteAdress = AssetDatabase.GetAssetPath(_buttonIcon.image);
+                _spriteAdress = _spriteAdress.Replace("Assets/Resources/", "");
+                _spriteAdress = _spriteAdress.Replace(".png", "");
             }
             _skillType = (SkillType)EditorGUILayout.EnumPopup(_skillType);
             if (GUILayout.Button("Save Item"))
@@ -95,8 +97,7 @@ namespace TLY.SkillSystem
                 }
                 else
                 {
-                    _skillDB.EditSkillBlock(_indexer, _skillName, _descript, _spriteAdress, _skillType);
-                    ResetSkill();
+                    _skillDB.EditSkillBlock(_indexer, _skillName, _descript, _spriteAdress, _skillType);                    
                 }
                 
             }
