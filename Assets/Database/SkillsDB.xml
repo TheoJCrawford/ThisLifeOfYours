@@ -1,65 +1,65 @@
 <DocumentElement>
   <Skill_x0020_Blocks-EN>
     <ID>0</ID>
-    <Name> Martial</Name>
-    <Description> The art of warfare and weilding mlitia arms</Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/MartialSkillIcon.png</Sprite_x0020_Adress>
+    <Name>Martial</Name>
+    <Description>The art of warfare and weilding mlitia arms</Description>
+    <Sprite_x0020_Adress>Sprites/Skills/MartialSkillIcon</Sprite_x0020_Adress>
     <Skill_x0020_Type>0</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
   <Skill_x0020_Blocks-EN>
     <ID>1</ID>
     <Name>Thievery</Name>
     <Description>Stealing, lock picking, and sneaking</Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/ThieverySkillIcon.png</Sprite_x0020_Adress>
+    <Sprite_x0020_Adress>Sprites/Skills/ThieverySkillIcon</Sprite_x0020_Adress>
     <Skill_x0020_Type>2</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
   <Skill_x0020_Blocks-EN>
     <ID>2</ID>
     <Name>Brawling</Name>
     <Description>The art of using fists against living things</Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/BrawlingSkillIcon.png</Sprite_x0020_Adress>
+    <Sprite_x0020_Adress>Sprites/Skills/BrawlingSkillIcon</Sprite_x0020_Adress>
     <Skill_x0020_Type>0</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
   <Skill_x0020_Blocks-EN>
     <ID>3</ID>
     <Name>Thaumatergy</Name>
     <Description>The science of magic, or relative lack there of</Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/ThaumatergySkillIcon.png</Sprite_x0020_Adress>
+    <Sprite_x0020_Adress>Sprites/Skills/ThaumatergySkillIcon</Sprite_x0020_Adress>
     <Skill_x0020_Type>2</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
   <Skill_x0020_Blocks-EN>
     <ID>4</ID>
-    <Name> Faith</Name>
+    <Name>Faith</Name>
     <Description>Worshiping at the temples and generaly divine things.</Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/FaithSkillIcon.png</Sprite_x0020_Adress>
+    <Sprite_x0020_Adress>Sprites/Skills/FaithSkillIcon</Sprite_x0020_Adress>
     <Skill_x0020_Type>2</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
   <Skill_x0020_Blocks-EN>
     <ID>5</ID>
     <Name>Smithing </Name>
     <Description>Forging minerals into a variety of things</Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/Blacksmithing.png</Sprite_x0020_Adress>
+    <Sprite_x0020_Adress>Sprites/Skills/Blacksmithing</Sprite_x0020_Adress>
     <Skill_x0020_Type>1</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
   <Skill_x0020_Blocks-EN>
     <ID>6</ID>
     <Name>Leatherworking</Name>
     <Description>The fine art of making leather itmes of clothing or accessories</Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/Leatherworking.png</Sprite_x0020_Adress>
+    <Sprite_x0020_Adress>Sprites/Skills/Leatherworking</Sprite_x0020_Adress>
     <Skill_x0020_Type>1</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
   <Skill_x0020_Blocks-EN>
     <ID>7</ID>
-    <Name> Tailoring</Name>
+    <Name>Tailoring</Name>
     <Description>The art of spinning yarn and thread into cloth and other items.</Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/TailoringSkillIcon.png</Sprite_x0020_Adress>
+    <Sprite_x0020_Adress>Sprites/Skills/TailoringSkillIcon</Sprite_x0020_Adress>
     <Skill_x0020_Type>1</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
   <Skill_x0020_Blocks-EN>
     <ID>8</ID>
     <Name> Alchemy</Name>
     <Description>The fine art of turning mutagens and ingredients into potions, poisons and other itmes. </Description>
-    <Sprite_x0020_Adress>Assets/Art/SkillIcons/AlchemySkillIcon.png</Sprite_x0020_Adress>
+    <Sprite_x0020_Adress>Sprites/Skills/AlchemySkillIcon</Sprite_x0020_Adress>
     <Skill_x0020_Type>1</Skill_x0020_Type>
   </Skill_x0020_Blocks-EN>
 </DocumentElement>

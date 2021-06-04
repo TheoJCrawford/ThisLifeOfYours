@@ -1,41 +1,41 @@
 <NewDataSet>
   <Table1>
     <ID>0</ID>
-    <Item_x0020_Name> Yew log</Item_x0020_Name>
+    <Item_x0020_Name>Yew log</Item_x0020_Name>
     <Cost>5</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Yew Log.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Yew Log</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A log from a yew tree</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>1</ID>
-    <Item_x0020_Name> Cedar log</Item_x0020_Name>
+    <Item_x0020_Name>Cedar log</Item_x0020_Name>
     <Cost>10</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Ceddar Log.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Ceddar Log</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>Log taken from a cedar tree</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>2</ID>
-    <Item_x0020_Name> Spurce log</Item_x0020_Name>
+    <Item_x0020_Name> Spruce log</Item_x0020_Name>
     <Cost>7</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/spruce Log.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/spruce Log</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A log taken from a spruce tree.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>3</ID>
-    <Item_x0020_Name> Ash log</Item_x0020_Name>
+    <Item_x0020_Name>Ash log</Item_x0020_Name>
     <Cost>20</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Ash Log.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Ash Log</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A log of ash wood.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>4</ID>
-    <Item_x0020_Name> Elm log</Item_x0020_Name>
+    <Item_x0020_Name>Elm log</Item_x0020_Name>
     <Cost>67</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Elm Log.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Elm Log</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A log of elm wood.</Item_x0020_Desription>
   </Table1>
@@ -43,55 +43,55 @@
     <ID>5</ID>
     <Item_x0020_Name>Oak log</Item_x0020_Name>
     <Cost>500</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/oak Log.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/oak Log</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A log of oak wood.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>6</ID>
-    <Item_x0020_Name> Yew plank</Item_x0020_Name>
+    <Item_x0020_Name>Yew plank</Item_x0020_Name>
     <Cost>13</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/yew plank.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/yew plank</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A plank of yew wood</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>7</ID>
-    <Item_x0020_Name> Cedar plank</Item_x0020_Name>
+    <Item_x0020_Name>Cedar plank</Item_x0020_Name>
     <Cost>15</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/ceddar plank.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/ceddar plank</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A plank of cedar wood.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>8</ID>
-    <Item_x0020_Name> Spruce plank</Item_x0020_Name>
+    <Item_x0020_Name>Spruce plank</Item_x0020_Name>
     <Cost>27</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/spruce plank.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/spruce plank</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A plank of wood made from spruce logs</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>9</ID>
-    <Item_x0020_Name> Ash plank</Item_x0020_Name>
+    <Item_x0020_Name>Ash plank</Item_x0020_Name>
     <Cost>50</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Ash plank.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Ash plank</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A plank of wood made from ash logs</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>10</ID>
-    <Item_x0020_Name> Elm plank</Item_x0020_Name>
+    <Item_x0020_Name>Elm plank</Item_x0020_Name>
     <Cost>80</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Elm plank.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Elm plank</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A plank of wood made from elm logs.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>11</ID>
-    <Item_x0020_Name> Oak plank</Item_x0020_Name>
+    <Item_x0020_Name>Oak plank</Item_x0020_Name>
     <Cost>120</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/oak plank.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/oak plank</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A plank of wood made from an oak log</Item_x0020_Desription>
   </Table1>
@@ -99,23 +99,23 @@
     <ID>12</ID>
     <Item_x0020_Name>Copper ore</Item_x0020_Name>
     <Cost>5</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/CopperOre.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/CopperOre</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A metal mined from the earth.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>13</ID>
-    <Item_x0020_Name> Zinc ore</Item_x0020_Name>
+    <Item_x0020_Name>Zinc ore</Item_x0020_Name>
     <Cost>6</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Zinc ore.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Zinc ore</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A piece of zinc, mined from the earth</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>14</ID>
-    <Item_x0020_Name> Iron ore</Item_x0020_Name>
+    <Item_x0020_Name>Iron ore</Item_x0020_Name>
     <Cost>15</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/IronOre.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/IronOre</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A piece of iron mined from the earth.</Item_x0020_Desription>
   </Table1>
@@ -123,15 +123,15 @@
     <ID>15</ID>
     <Item_x0020_Name>Silver ore</Item_x0020_Name>
     <Cost>90</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/SilverOre.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/SilverOre</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>Raw silver mined from the earth.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>16</ID>
-    <Item_x0020_Name> Gold ore</Item_x0020_Name>
+    <Item_x0020_Name>Gold ore</Item_x0020_Name>
     <Cost>150</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/goldOre.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/goldOre</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>Gold mined from the ground.</Item_x0020_Desription>
   </Table1>
@@ -139,7 +139,7 @@
     <ID>17</ID>
     <Item_x0020_Name>Mytharial ore</Item_x0020_Name>
     <Cost>300</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/MythralOre.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/MythralOre</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A stange metal that seems incredibly strong while light as a feather.</Item_x0020_Desription>
   </Table1>
@@ -147,23 +147,23 @@
     <ID>18</ID>
     <Item_x0020_Name> Oricalcum ore</Item_x0020_Name>
     <Cost>400</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/OrichalcumOre.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/OrichalcumOre</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A strange metal found from deep in the earth.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>19</ID>
-    <Item_x0020_Name> Titanium ore</Item_x0020_Name>
+    <Item_x0020_Name>Titanium ore</Item_x0020_Name>
     <Cost>170</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Titianium Ore.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Titianium Ore</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>An ore found deep within the earth. Surprisingly durable.</Item_x0020_Desription>
   </Table1>
   <Table1>
     <ID>20</ID>
-    <Item_x0020_Name> Copper Ingot</Item_x0020_Name>
+    <Item_x0020_Name>Copper Ingot</Item_x0020_Name>
     <Cost>25</Cost>
-    <Sprite_x0020_Address>Assets/Art/Sprites/ItemSprite/Copper Ingot.png</Sprite_x0020_Address>
+    <Sprite_x0020_Address>Sprites/Items/Copper Ingot</Sprite_x0020_Address>
     <Item_x0020_type>0</Item_x0020_type>
     <Item_x0020_Desription>A bar of copper.</Item_x0020_Desription>
   </Table1>
