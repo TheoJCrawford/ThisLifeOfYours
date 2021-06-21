@@ -5169,6 +5169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor Item
       objectReference: {fileID: 0}
+    - target: {fileID: 7059948756650264025, guid: 9fa4b4f415ca7744cb182f61d491cd94,
+        type: 3}
+      propertyPath: _itemValue
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7059948756650264028, guid: 9fa4b4f415ca7744cb182f61d491cd94,
         type: 3}
       propertyPath: m_RootOrder
@@ -5177,12 +5182,12 @@ PrefabInstance:
     - target: {fileID: 7059948756650264028, guid: 9fa4b4f415ca7744cb182f61d491cd94,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.49
+      value: 20.8
       objectReference: {fileID: 0}
     - target: {fileID: 7059948756650264028, guid: 9fa4b4f415ca7744cb182f61d491cd94,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 7059948756650264028, guid: 9fa4b4f415ca7744cb182f61d491cd94,
         type: 3}
