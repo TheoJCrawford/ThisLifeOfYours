@@ -3,7 +3,9 @@ using System.IO;
 using System.Data;
 using UnityEngine;
 
-
+/// <summary>
+/// This is a database core script.
+/// </summary>
 public class ItemDatabase
 {
     DataSet itemDeus;

@@ -6,10 +6,22 @@ using UnityEngine.InputSystem;
 
 namespace TLY.Controls
 {
+    /// <summary>
+    /// This script handles the controls and their attachment to certain scripts
+    /// <para>
+    /// When the script is attached to an object, the PlayerMovement, PlayerAnimator, and PlayerInput scripts are added to the GameObject. See RequireComponent Unity Documentation
+    /// Start creates reference points for the PlayerMover, PlayerAnimator, and PlayerInput and sts up the InputActions for Move, run, and interact.
+    /// </para>
+    /// <para>
+    /// TakeMoveInput takes the moveInput set in _moveAction and applies it to the Mover and Animator functions. Furthermore, should the moveInput's magnitude be greater then 0, it turns the animation for walking on, and off when it is equal to 0.
+    /// TakeSprintInput takse whether the button is down or not, and enguages sprint in both the animator and motor.
+    /// </para>
+    /// </summary>
     [RequireComponent(typeof(PlayerMovement), typeof(PlayerAnimator), typeof(PlayerInput))]
     
     public class PlayerControls : MonoBehaviour
     {
+        
         private enum ControlState
         {
             Moving,
