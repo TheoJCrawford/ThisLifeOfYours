@@ -4,34 +4,38 @@ using System.Collections.Generic;
 
 namespace TLY.ItemSystem
 {
+    /// <summary>
+    /// This structure is designed to hold information regarding crafting recipies.
+    /// <para>
+    /// _igredient dictionary holds the ItemID as the key and the number of items needed as the value.
+    /// _ouput houses itemID for outputed item
+    /// _numOut is houses how many of an item will be returned upon crafting success
+    /// _skillRlvl is the required level the crafting skill needs to be.
+    /// </para>
+    /// </summary>
     [Serializable]
     public struct Recipe
     {
-        [SerializeField] private Dictionary<int, int> _ingredients;
-        [SerializeField] private int _output;
-        [SerializeField] private int _numOut;
-        [SerializeField] private int _recDif;
-        [SerializeField] private int _skilRlLvl;
-
+        private Dictionary<int, int> _ingredients;
+        private int _output;
+        private int _numOut;
+        private int _recDif;
+        private int _skilRlLvl;
+        #region Requesers
         public int refDif => _recDif;
         public Dictionary<int, int> ingredients => _ingredients;
         public int output => _output;
         public int numOut => _numOut;
         public int skillLvl => _skilRlLvl;
-
-        public void SetRefDif(int Difficulty) => _recDif = Difficulty;
-        public void AddDictionaryEntry(int ItemID, int num) => _ingredients.Add(ItemID, num);
-        public void RemoveDictionaryEntry(int ItemID) => _ingredients.Remove(ItemID);
-        public void SetSkill( int SkillRank)=> _skilRlLvl = SkillRank; 
-
-        public Recipe(int item = 0, int num = 1, int output = 6, int outVal = 2, int dif = 1, int SRL = 1)
+        #endregion
+        public Recipe(int SkillRaiting, int Difficulty, int Ouput,int OutNum, Dictionary<int, int> Ingredients)
         {
             _ingredients = new Dictionary<int, int>();
-            _ingredients.Add(item, num);
-            _output = output;
-            _numOut = outVal;
-            _recDif = dif;
-            _skilRlLvl = SRL;
+            _ingredients = Ingredients;
+            _output = Ouput;
+            _numOut = OutNum;
+            _recDif = Difficulty;
+            _skilRlLvl = SkillRaiting;
         }
     }
 }
