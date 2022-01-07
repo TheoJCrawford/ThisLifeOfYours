@@ -11,7 +11,8 @@
                     "id": "27c4ad24-87fa-462d-968a-8ab267c45814",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Run",
@@ -19,7 +20,8 @@
                     "id": "7fb564db-6e77-45bc-bef0-61c7e6cb4084",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Interact",
@@ -27,7 +29,8 @@
                     "id": "b7a1f4eb-67dc-45a0-83b0-0559a34ff621",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Attack",
@@ -35,7 +38,8 @@
                     "id": "636d007b-37cb-4397-898f-aa3c0528cf51",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -183,7 +187,8 @@
                     "id": "bb1a0b5d-7c6d-4fb0-baaf-8e652763de81",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -210,7 +215,8 @@
                     "id": "06cb9bfb-e695-4a43-bf9c-0481a2daf3e2",
                     "expectedControlType": "Integer",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Down",
@@ -218,7 +224,8 @@
                     "id": "820d4daa-b6a2-431a-b306-bce1e99f8108",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Left",
@@ -226,7 +233,8 @@
                     "id": "d6aefd7f-ffba-4353-93fc-9c8d35628648",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Right",
@@ -234,7 +242,8 @@
                     "id": "60d011d0-3314-4ba4-b40a-83ff2cf2ddda",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
