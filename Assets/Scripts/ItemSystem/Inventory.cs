@@ -1,19 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System;
+using UnityEngine;
+[Serializable]
 public class Inventory
 {
     private const int BASE_INVENTORY = 15;
-    private int _bonusInventSize;
-    private List<int> _invent;
+    [SerializeField] private int _bonusInventSize;
+    [SerializeField] private List<int> _invent;
 
     public int InventSize => BASE_INVENTORY + _bonusInventSize > 0? BASE_INVENTORY + _bonusInventSize:1;
     public bool IsFull => _invent.Count == InventSize;
     public int NumOfItem(int ItemID = 0) => _invent.Contains(ItemID) ? _invent.Count(i => i == ItemID) : 0;
 
-    public Inventory()
+    
+    public static Inventory CreateNewInventory(int Bonus = 0)
     {
-        _bonusInventSize = 0;
-        _invent = new List<int>();
+        Inventory invent = new Inventory();
+        invent._invent = new List<int>();
+        invent._bonusInventSize = Bonus;
+        return invent;
     }
 
     public void AddNewItem(int ItemID = 0, int ItemNum = 1) //Default is wood and adds one of it

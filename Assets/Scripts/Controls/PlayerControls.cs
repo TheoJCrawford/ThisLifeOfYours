@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using TLY.Movement;
 using TLY.Animation;
-using UnityEngine.InputSystem;  
-
+using UnityEngine.InputSystem;
+using System;
 
 namespace TLY.Controls
 {
@@ -35,11 +35,7 @@ namespace TLY.Controls
 
         private PlayerMovement _mover;
         private PlayerAnimator _anima;
-        private PlayerInput _playerInput;
-
-        private InputAction _moveAction;
-        private InputAction _spirntAction;
-        private InputAction _interAction;
+        private PlayerInput _playerInput;        
 
         // Start is called before the first frame update
         void Start()
@@ -48,28 +44,37 @@ namespace TLY.Controls
             _anima = GetComponent<PlayerAnimator>();
             _playerInput = GetComponent<PlayerInput>();
 
-            _moveAction = _playerInput.actions.FindAction("Movement");
-            _spirntAction = _playerInput.actions.FindAction("Run");
-            _interAction = _playerInput.actions.FindAction("Interact");
-
             _state = ControlState.Moving;
         }
 
         private void Update()
         {
-            _moveAction.performed += TakeMoveInput;
-            _spirntAction.performed += TakeSprintInput;
-            _interAction.performed += TakeInteractionInput;
-            _moveAction.canceled += TakeMoveInput;
-            _spirntAction.canceled += TakeSprintInput;
-            _interAction.canceled += TakeInteractionInput;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                RaycastHit2D hits;
+                switch (_anima.DirectionCheck)
+                {
+                    case 1:
+                        hits = Physics2D.Raycast(transform.position, Vector2.left, 0.3f);
+                        break;
+                    case 2:
+                        hits = Physics2D.Raycast(transform.position, Vector2.up, 0.3f);
+                        break;
+                    case 3:
+                        hits = Physics2D.Raycast(transform.position, Vector2.right, 0.3f);
+                        break;
+                    default:
+                        hits = Physics2D.Raycast(transform.position, Vector2.down, 0.3f);
+                        break;
+                }
+                Debug.Log(hits.collider.name);
+            }
         }
 
-        private void TakeMoveInput(InputAction.CallbackContext context)
+        public void OnMovement(InputValue MovementValue)
         {
-            _mover.TakeInput(context.ReadValue<Vector2>());
-            _anima.SetDirection(context.ReadValue<Vector2>());
-            if(context.ReadValue<Vector2>() != Vector2.zero)
+            Vector2 moveVec = MovementValue.Get<Vector2>();
+            if(moveVec != Vector2.zero)
             {
                 _anima.BeginMovement();
             }
@@ -77,47 +82,39 @@ namespace TLY.Controls
             {
                 _anima.EndMovement();
             }
+            _mover.TakeInput(moveVec);
+            _anima.SetDirection(moveVec);
         }
-        private void TakeSprintInput(InputAction.CallbackContext context)
+        public void OnRun(InputValue RunBool)
         {
-            if(context.ReadValue<float>() != 0){
-                _mover.sprintState(true);
-                _anima.SetSpritState(true);
+            if(!RunBool.isPressed)
+            {
+                _mover.sprintState(false);
             }
             else
             {
-                _mover.sprintState(false);
-                _anima.SetSpritState(false);
+                _mover.sprintState(true);
             }
-            
         }
-        private void TakeInteractionInput(InputAction.CallbackContext context)
+       public void OnInteract()
         {
-            RaycastHit2D hits;
-            if (context.ReadValue<float>() != 0)
+
+        }
+        public void OnAttack()
+        {
+
+        }
+
+        private bool ContainsAnID(Collider2D collider)
+        {
+            if (collider.GetComponent<ItemSystem.Chest>())
             {
-                switch (_anima.DirectionCheck)
-                {
-                    case 1:
-                        hits = Physics2D.Raycast(transform.position, Vector2.left);
-                        break;
-                    case 2:
-                        hits = Physics2D.Raycast(transform.position, Vector2.up);
-                        break;
-                    case 3:
-                        hits = Physics2D.Raycast(transform.position, Vector2.right);
-                        break;
-                    default:
-                        hits = Physics2D.Raycast(transform.position, Vector2.down);
-                        break;
-                }
-                if (hits.collider.GetComponent<TownActivities.NPC.NPCCore>())
-                {
-
-                }
-
+                return true;
             }
-
+            else
+            {
+                return false;
+            }
         }
     }
 }

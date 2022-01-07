@@ -35,7 +35,7 @@ namespace TLY.Core
                 Health = new Vital("Health");
                 Stamina = new Vital("Stamina");
                 Skills = new List<SkillBlock>();
-                inventory = new Inventory();
+                inventory = Inventory.CreateNewInventory();
                 attack = 0;
                 defence = 0;
                 magic = 0;

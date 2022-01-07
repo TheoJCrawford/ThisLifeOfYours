@@ -11,6 +11,7 @@ public class ItemDatabase
     DataSet itemDeus;
     DataTable itemDb;
     DataTable weaponDb;
+    DataTable armorDb;
 
 
     public int DbSize => itemDb.Rows.Count;
@@ -47,6 +48,7 @@ public class ItemDatabase
         dataColumn.AutoIncrementSeed = 0;
         dataColumn.AutoIncrementStep = 1;
         dataColumn.ReadOnly = true;
+        dataColumn.Unique = true;
         primaryKeys[0] = dataColumn;
         itemDb.Columns.Add(dataColumn);
         #endregion
@@ -95,7 +97,7 @@ public class ItemDatabase
 
         DataColumn dataColumn1 = new DataColumn();
         dataColumn1.ColumnName = "Weapon Type";
-        dataColumn1.DataType = typeof(WeaponType);
+        dataColumn1.DataType = typeof(byte);
         weaponDb.Columns.Add(dataColumn1);
 
         DataColumn dataColumn2 = new DataColumn();
@@ -109,6 +111,22 @@ public class ItemDatabase
         weaponDb.Columns.Add(dataColumn3);
 
         itemDeus.Tables.Add(weaponDb);
+    }
+    private void CreateClothDatabase()
+    {
+        armorDb = new DataTable();
+        #region ID
+        DataColumn dataColumn = new DataColumn();
+        dataColumn.ColumnName = "ID";
+        dataColumn.DataType = typeof(int);
+        dataColumn.Unique = true;
+        armorDb.Columns.Add(dataColumn);
+        #endregion
+        #region
+        DataColumn dataColumn1 = new DataColumn();
+        dataColumn1.ColumnName = "ArmorType";
+        dataColumn1.DataType = typeof(byte);
+        #endregion
     }
     private void PopulateDatatable()
     {
@@ -139,9 +157,18 @@ public class ItemDatabase
         dataRow["Item Name"] = Name;
         dataRow["Cost"] = ItemCost;
         dataRow["Sprite Address"] = SpriteString;
-        dataRow["Item type"] = ItemType;
+        dataRow["Item type"] = (byte)ItemType;
         dataRow["Item Desription"] = ItemDescript;
         itemDb.Rows.Add(dataRow);
+    }
+
+    public void AddNewWeapon(string Name = "Iron Ore", int ItemCost = 5, string ItemDescript = "A climp of iron found in mines. \n Used in making iron and steel.", string SpriteString = "Assets/Art/itemIcons/IronOre.png", ItemType ItemType = ItemType.Material, byte WeaponType = 0, int DamageValue = 0, float AttackSpeed = 1.0f)
+    {
+
+    }
+    public void AddNewArmor()
+    {
+
     }
 
     public  void EditItem(int index, string Name, int ItemCost, string ItemDescript, string SpriteString, ItemType IType)
@@ -156,16 +183,24 @@ public class ItemDatabase
         
     }
 }
-public enum ItemType
+public enum ItemType:byte
 {
     Material,
     Consumeable,
     Weapon,
     Armor
 };
-public enum WeaponType
+public enum WeaponType:byte
 {
     Melee,
     Ranged,
     Hybrid
 };
+
+public enum ArmorType:byte
+{
+    Head,
+    Shirt,
+    Pants,
+    Shoes
+}
