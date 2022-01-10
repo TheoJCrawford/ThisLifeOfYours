@@ -35,7 +35,7 @@ namespace TLY.Controls
 
         private PlayerMovement _mover;
         private PlayerAnimator _anima;
-        private PlayerInput _playerInput;        
+        private PlayerInput _playerInput;
 
         // Start is called before the first frame update
         void Start()
@@ -46,31 +46,6 @@ namespace TLY.Controls
 
             _state = ControlState.Moving;
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                RaycastHit2D hits;
-                switch (_anima.DirectionCheck)
-                {
-                    case 1:
-                        hits = Physics2D.Raycast(transform.position, Vector2.left, 0.3f);
-                        break;
-                    case 2:
-                        hits = Physics2D.Raycast(transform.position, Vector2.up, 0.3f);
-                        break;
-                    case 3:
-                        hits = Physics2D.Raycast(transform.position, Vector2.right, 0.3f);
-                        break;
-                    default:
-                        hits = Physics2D.Raycast(transform.position, Vector2.down, 0.3f);
-                        break;
-                }
-                Debug.Log(hits.collider.name);
-            }
-        }
-
         public void OnMovement(InputValue MovementValue)
         {
             Vector2 moveVec = MovementValue.Get<Vector2>();
@@ -98,7 +73,23 @@ namespace TLY.Controls
         }
        public void OnInteract()
         {
-
+            RaycastHit2D hits;
+            switch (_anima.DirectionCheck)
+            {
+                case 1:
+                    hits = Physics2D.Raycast(transform.position, Vector2.left, 0.3f);
+                    break;
+                case 2:
+                    hits = Physics2D.Raycast(transform.position, Vector2.up, 0.3f);
+                    break;
+                case 3:
+                    hits = Physics2D.Raycast(transform.position, Vector2.right, 0.3f);
+                    break;
+                default:
+                    hits = Physics2D.Raycast(transform.position, Vector2.down, 0.3f);
+                    break;
+            }
+            Debug.Log(hits.collider.name);
         }
         public void OnAttack()
         {

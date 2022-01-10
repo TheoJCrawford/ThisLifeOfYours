@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace TLY.Movement
 {
@@ -12,7 +11,6 @@ namespace TLY.Movement
 
         private static Vector2 _moveDirection;
 
-        private Vector2 _lookPos;
         private Rigidbody2D _self;
         private bool _isSprinting;
         // Start is called before the first frame update
@@ -25,7 +23,6 @@ namespace TLY.Movement
             }
             _isSprinting = false;
         }
-
         // Update is called once per frame
         void LateUpdate()
         {
