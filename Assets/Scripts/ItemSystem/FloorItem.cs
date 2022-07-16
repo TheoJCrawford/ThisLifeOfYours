@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace TLY.ItemSystem
 {
@@ -13,6 +14,11 @@ namespace TLY.ItemSystem
         public FloorItem(int Item = 0)
         {
             _itemValue = Item;
+        }
+
+        internal void SetDriftLocation(Transform parent)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, parent.position,0f);
         }
 
         private void Start()

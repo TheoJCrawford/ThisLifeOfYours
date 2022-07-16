@@ -73,6 +73,7 @@ namespace TLY.Controls
         }
        public void OnInteract()
         {
+            Debug.Log("Inreacting");
             RaycastHit2D hits;
             switch (_anima.DirectionCheck)
             {
