@@ -7,7 +7,7 @@ public class Inventory
 {
     private const int BASE_INVENTORY = 15;
     [SerializeField] private int _bonusInventSize;
-    [SerializeField] private List<int> _invent;
+    [SerializeField] private List<int?> _invent;
 
     public int InventSize => BASE_INVENTORY + _bonusInventSize > 0? BASE_INVENTORY + _bonusInventSize:1;
     public bool IsFull => _invent.Count == InventSize;
@@ -17,10 +17,10 @@ public class Inventory
     public static Inventory CreateNewInventory(int Bonus = 0)
     {
         Inventory invent = new Inventory();
-        invent._invent = new List<int>();
+        invent._invent = new List<int?>();
         invent._bonusInventSize = Bonus;
         return invent;
-    }
+    }   
 
     public void AddNewItem(int ItemID = 0, int ItemNum = 1) //Default is wood and adds one of it
     {

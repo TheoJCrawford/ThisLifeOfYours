@@ -24,8 +24,8 @@ public class ItemDatabase
     public string ReturnItemDecsript(int index) => itemDb.Rows.Find(index)["Item Desription"].ToString();
     public ItemType ReturnItemType(int index) => (ItemType)itemDb.Rows.Find(index)["Item type"];
     #endregion
-    
-    
+
+
     public static ItemDatabase InstantiateItemDatabase()
     {
         ItemDatabase self = new ItemDatabase();
@@ -41,47 +41,59 @@ public class ItemDatabase
         itemDb = new DataTable();
 
         #region Item ID column
-        DataColumn dataColumn = new DataColumn();
-        dataColumn.ColumnName = "ID";
-        dataColumn.DataType = typeof(int);
-        dataColumn.AutoIncrement = true;
-        dataColumn.AutoIncrementSeed = 0;
-        dataColumn.AutoIncrementStep = 1;
-        dataColumn.ReadOnly = true;
-        dataColumn.Unique = true;
-        primaryKeys[0] = dataColumn;
-        itemDb.Columns.Add(dataColumn);
+        using (DataColumn dataColumn = new DataColumn())
+        {
+            dataColumn.ColumnName = "ID";
+            dataColumn.DataType = typeof(int);
+            dataColumn.AutoIncrement = true;
+            dataColumn.AutoIncrementSeed = 0;
+            dataColumn.AutoIncrementStep = 1;
+            dataColumn.ReadOnly = true;
+            dataColumn.Unique = true;
+            primaryKeys[0] = dataColumn;
+            itemDb.Columns.Add(dataColumn);
+        }
         #endregion
         #region Item Name
-        DataColumn dataColumn1 = new DataColumn();
-        dataColumn1.ColumnName = "Item Name";
-        dataColumn1.DataType = typeof(string);
-        itemDb.Columns.Add(dataColumn1);
+        using (DataColumn dataColumn1 = new DataColumn())
+        {
+            dataColumn1.ColumnName = "Item Name";
+            dataColumn1.DataType = typeof(string);
+            itemDb.Columns.Add(dataColumn1);
+        }
         #endregion
         #region Item Cost
-        DataColumn dataColumn2 = new DataColumn();
-        dataColumn2.ColumnName = "Cost";
-        dataColumn2.DataType = typeof(int);
-        itemDb.Columns.Add(dataColumn2);
+        using (DataColumn dataColumn2 = new DataColumn())
+        {
+            dataColumn2.ColumnName = "Cost";
+            dataColumn2.DataType = typeof(int);
+            itemDb.Columns.Add(dataColumn2);
+        }
         #endregion
         #region Item Sprite
-        DataColumn dataColumn3 = new DataColumn();
-        dataColumn3.ColumnName = "Sprite Address";
-        dataColumn3.Unique = true;
-        dataColumn3.DataType = typeof(string);
-        itemDb.Columns.Add(dataColumn3);
+        using (DataColumn dataColumn3 = new DataColumn())
+        {
+            dataColumn3.ColumnName = "Sprite Address";
+            dataColumn3.Unique = true;
+            dataColumn3.DataType = typeof(string);
+            itemDb.Columns.Add(dataColumn3);
+        }
         #endregion
         #region Item Type
-        DataColumn dataColumn4 = new DataColumn();
-        dataColumn4.ColumnName = "Item type";
-        dataColumn4.DataType = typeof(ItemType);
-        itemDb.Columns.Add(dataColumn4);
+        using (DataColumn dataColumn4 = new DataColumn())
+        {
+            dataColumn4.ColumnName = "Item type";
+            dataColumn4.DataType = typeof(ItemType);
+            itemDb.Columns.Add(dataColumn4);
+        }
         #endregion
         #region Item Descriptor
-        DataColumn dataColumn5 = new DataColumn();
-        dataColumn5.ColumnName = "Item Desription";
-        dataColumn5.DataType = typeof(string);
-        itemDb.Columns.Add(dataColumn5);
+        using (DataColumn dataColumn5 = new DataColumn())
+        {
+            dataColumn5.ColumnName = "Item Desription";
+            dataColumn5.DataType = typeof(string);
+            itemDb.Columns.Add(dataColumn5);
+        }
         #endregion
         itemDb.PrimaryKey = primaryKeys;
         itemDeus.Tables.Add(itemDb);
@@ -89,26 +101,31 @@ public class ItemDatabase
     private void CreateWeaponDataTable()
     {
         weaponDb = new DataTable();
-        DataColumn dataColumn = new DataColumn();
-        dataColumn.ColumnName = "Weapon ID";
-        dataColumn.DataType = typeof(int);
-        dataColumn.Unique = true;
-        weaponDb.Columns.Add(dataColumn);
-
-        DataColumn dataColumn1 = new DataColumn();
-        dataColumn1.ColumnName = "Weapon Type";
-        dataColumn1.DataType = typeof(byte);
-        weaponDb.Columns.Add(dataColumn1);
-
-        DataColumn dataColumn2 = new DataColumn();
-        dataColumn2.ColumnName = "Damage Value";
-        dataColumn2.DataType = typeof(int);
-        weaponDb.Columns.Add(dataColumn2);
-
-        DataColumn dataColumn3 = new DataColumn();
-        dataColumn3.ColumnName = "Attack Speed";
-        dataColumn3.DataType = typeof(float);
-        weaponDb.Columns.Add(dataColumn3);
+        using (DataColumn dataColumn = new DataColumn())
+        {
+            dataColumn.ColumnName = "Weapon ID";
+            dataColumn.DataType = typeof(int);
+            dataColumn.Unique = true;
+            weaponDb.Columns.Add(dataColumn);
+        }
+        using (DataColumn dataColumn1 = new DataColumn())
+        {
+            dataColumn1.ColumnName = "Weapon Type";
+            dataColumn1.DataType = typeof(byte);
+            weaponDb.Columns.Add(dataColumn1);
+        }
+        using (DataColumn dataColumn2 = new DataColumn())
+        {
+            dataColumn2.ColumnName = "Damage Value";
+            dataColumn2.DataType = typeof(int);
+            weaponDb.Columns.Add(dataColumn2);
+        }
+        using (DataColumn dataColumn3 = new DataColumn())
+        {
+            dataColumn3.ColumnName = "Attack Speed";
+            dataColumn3.DataType = typeof(float);
+            weaponDb.Columns.Add(dataColumn3);
+        }
 
         itemDeus.Tables.Add(weaponDb);
     }
@@ -116,17 +133,23 @@ public class ItemDatabase
     {
         armorDb = new DataTable();
         #region ID
-        DataColumn dataColumn = new DataColumn();
-        dataColumn.ColumnName = "ID";
-        dataColumn.DataType = typeof(int);
-        dataColumn.Unique = true;
-        armorDb.Columns.Add(dataColumn);
+        using (DataColumn dataColumn = new DataColumn())
+        {
+            dataColumn.ColumnName = "ID";
+            dataColumn.DataType = typeof(int);
+            dataColumn.Unique = true;
+            armorDb.Columns.Add(dataColumn);
+        }
         #endregion
         #region
-        DataColumn dataColumn1 = new DataColumn();
-        dataColumn1.ColumnName = "ArmorType";
-        dataColumn1.DataType = typeof(byte);
+        using (DataColumn dataColumn1 = new DataColumn())
+        {
+            dataColumn1.ColumnName = "ArmorType";
+            dataColumn1.DataType = typeof(byte);
+            armorDb.Columns.Add(dataColumn1);
+        }
         #endregion
+
     }
     private void PopulateDatatable()
     {
@@ -139,13 +162,13 @@ public class ItemDatabase
         }
     }
 
-    public  void SaveDataTable()
+    public void SaveDataTable()
     {
         using (StreamWriter writer = new StreamWriter("Assets/Database/ItemDB.xml"))
         {
             itemDb.WriteXml(writer);
         }
-        using(StreamWriter writer1 = new StreamWriter("Assets/Database/WeaponDB.xml"))
+        using (StreamWriter writer1 = new StreamWriter("Assets/Database/WeaponDB.xml"))
         {
             weaponDb.WriteXml(writer1);
         }
@@ -171,7 +194,7 @@ public class ItemDatabase
 
     }
 
-    public  void EditItem(int index, string Name, int ItemCost, string ItemDescript, string SpriteString, ItemType IType)
+    public void EditItem(int index, string Name, int ItemCost, string ItemDescript, string SpriteString, ItemType IType)
     {
 
 
@@ -180,24 +203,24 @@ public class ItemDatabase
         itemDb.Rows.Find(index)["Sprite Address"] = SpriteString;
         itemDb.Rows.Find(index)["Item type"] = IType;
         itemDb.Rows.Find(index)["Item Desription"] = ItemDescript;
-        
+
     }
 }
-public enum ItemType:byte
+public enum ItemType : byte
 {
     Material,
     Consumeable,
     Weapon,
     Armor
 };
-public enum WeaponType:byte
+public enum WeaponType : byte
 {
     Melee,
     Ranged,
     Hybrid
 };
 
-public enum ArmorType:byte
+public enum ArmorType : byte
 {
     Head,
     Shirt,

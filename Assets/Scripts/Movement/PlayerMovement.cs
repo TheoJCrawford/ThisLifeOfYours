@@ -9,6 +9,7 @@ namespace TLY.Movement
         [SerializeField] public float moveSpeed = 2f;
         [SerializeField] public float runSpeed = 5f;
 
+        protected static Vector2 _inputDirection;
         private static Vector2 _moveDirection;
 
         private Rigidbody2D _self;
@@ -26,7 +27,9 @@ namespace TLY.Movement
         // Update is called once per frame
         void LateUpdate()
         {
-            AddModifiers();
+            ConvertToMove();
+            AddSpeedModifiers();
+            AddFixedDelta();
             EnactMovement();
         }
         private void OnCollisionEnter(Collision collision)
@@ -38,21 +41,15 @@ namespace TLY.Movement
 
         }
         
-        private void EnactMovement()
-        {
-            _self.velocity = _moveDirection;   
-        }
+        private void EnactMovement() => _self.MovePosition(_self.position+_moveDirection);   
+        
 
-        public void TakeInput(Vector2 MoveVec)
+        public void TakeInput(Vector2 MoveVec)=> _inputDirection = MoveVec;
+        internal void ConvertToMove() => _moveDirection = _inputDirection;
+        
+        private void AddSpeedModifiers()
         {
-            _moveDirection = MoveVec;
-        }
-        private void AddModifiers()
-        {
-            if(_moveDirection.magnitude > 1)
-            {
-                _moveDirection.Normalize();
-            }
+            NormalizationCheck();
 
             if (_isSprinting)
             {
@@ -61,6 +58,15 @@ namespace TLY.Movement
             else
             {
                 _moveDirection *= moveSpeed;
+            }
+        }
+        private void AddFixedDelta() => _moveDirection *= Time.fixedDeltaTime;
+
+        private static void NormalizationCheck()
+        {
+            if (_moveDirection.magnitude > 1)
+            {
+                _moveDirection.Normalize();
             }
         }
 
