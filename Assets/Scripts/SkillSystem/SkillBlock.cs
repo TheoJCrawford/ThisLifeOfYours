@@ -45,9 +45,9 @@ namespace TLY.SkillSystem
             level++;
             expToLvel += level * 1000;
         }
-        public void BreakTheLimit()
-        {
-            limitBroken = true;
-        }
+        public void IncreaseExhaust() => exhaust++;
+        public void ResetExhaust() => exhaust = 0;
+        public void BreakTheLimit() => limitBroken = true;
+        
     }
 }
