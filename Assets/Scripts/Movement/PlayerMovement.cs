@@ -42,11 +42,8 @@ namespace TLY.Movement
         }
         
         private void EnactMovement() => _self.MovePosition(_self.position+_moveDirection);   
-        
-
         public void TakeInput(Vector2 MoveVec)=> _inputDirection = MoveVec;
         internal void ConvertToMove() => _moveDirection = _inputDirection;
-        
         private void AddSpeedModifiers()
         {
             NormalizationCheck();
@@ -61,7 +58,6 @@ namespace TLY.Movement
             }
         }
         private void AddFixedDelta() => _moveDirection *= Time.fixedDeltaTime;
-
         private static void NormalizationCheck()
         {
             if (_moveDirection.magnitude > 1)

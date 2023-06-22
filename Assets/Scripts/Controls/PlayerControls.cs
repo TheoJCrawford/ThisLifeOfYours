@@ -21,7 +21,7 @@ namespace TLY.Controls
     
     public class PlayerControls : MonoBehaviour
     {
-        
+        private readonly float INTERACT_DISTANCE = 0.4f;
         private enum ControlState
         {
             Moving,
@@ -78,16 +78,16 @@ namespace TLY.Controls
             switch (_anima.DirectionCheck)
             {
                 case 1:
-                    hits = Physics2D.Raycast(transform.position, Vector2.left, 0.3f);
+                    hits = Physics2D.Raycast(transform.position, Vector2.right, INTERACT_DISTANCE);
                     break;
                 case 2:
-                    hits = Physics2D.Raycast(transform.position, Vector2.up, 0.3f);
+                    hits = Physics2D.Raycast(transform.position, Vector2.up, INTERACT_DISTANCE);
                     break;
                 case 3:
-                    hits = Physics2D.Raycast(transform.position, Vector2.right, 0.3f);
+                    hits = Physics2D.Raycast(transform.position, Vector2.left, INTERACT_DISTANCE);
                     break;
                 default:
-                    hits = Physics2D.Raycast(transform.position, Vector2.down, 0.3f);
+                    hits = Physics2D.Raycast(transform.position, Vector2.down, INTERACT_DISTANCE*2.5f);
                     break;
             }
             Debug.Log(hits.collider.name);
