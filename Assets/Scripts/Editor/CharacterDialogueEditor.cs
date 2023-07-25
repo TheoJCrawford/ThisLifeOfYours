@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterDialogueEditor:EditorWindow
     {
+    private List<(byte, string)> characterIds;
     public List<(byte, string)> dialogueLines;
     private LanguageList languageState;
 
@@ -31,6 +32,10 @@ public class CharacterDialogueEditor:EditorWindow
 
     }
 
+    private void LoadCharacter(string CharacterName, LanguageList Character)
+    {
+
+    }
     private enum LanguageList
     {
         EN,
