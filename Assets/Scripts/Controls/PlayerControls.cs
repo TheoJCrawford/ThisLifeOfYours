@@ -48,7 +48,7 @@ namespace TLY.Controls
         }
         public void OnMovement(InputValue MovementValue)
         {
-            Vector2 moveVec = MovementValue.Get<Vector2>();
+            var moveVec = MovementValue.Get<Vector2>();
             if(moveVec != Vector2.zero)
             {
                 _anima.BeginMovement();
@@ -94,7 +94,25 @@ namespace TLY.Controls
         }
         public void OnAttack()
         {
-
+            switch(_anima.DirectionCheck)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void OnEnterMenu()
+        {
+            _playerInput.SwitchCurrentActionMap("UI");
+        }
+        public void OnExitMenu()
+        {
+            _playerInput.SwitchCurrentActionMap("Player");
         }
 
         private bool ContainsAnID(Collider2D collider)
@@ -108,5 +126,6 @@ namespace TLY.Controls
                 return false;
             }
         }
+
     }
 }
